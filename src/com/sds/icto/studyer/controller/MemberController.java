@@ -20,7 +20,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String joinForm() {
-		return "/member/joinform";
+		return "/member/signUpform";
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -31,7 +31,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginForm() {
-		return "/member/loginform";
+		return "/member/signInform";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -58,8 +58,8 @@ public class MemberController {
 		return "redirect:/index";
 	}
 
-	@RequestMapping("/uinfo")
+	/*@RequestMapping("/uinfo")
 	public String uinfo(HttpSession session) {
 		return "/member/memberinfo";
-	}
+	}*/
 }
