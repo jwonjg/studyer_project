@@ -3,7 +3,7 @@
 <sqlMap namespace="member">
 	<typeAlias alias="MemberVo" type="com.sds.icto.studyer.domain.MemberVo" />
 	
-	<select id="getMember" resultClass = "MemberVo" parameterClass="MemberVo">
+	<select id="getMember" resultClass = "MemberVo" parameterClass="java.util.Map">
 		<![CDATA[
 			select * 
 			  from member
@@ -20,5 +20,22 @@
 		values ( member_no_seq.nextval, #email#, #password#, #name#, #photo#)
 		]]>
 	</insert>
+	
+	<update id="update" parameterClass="MemberVo">
+		<![CDATA[
+		update member
+		 set password=#password#, name=#name#, photo=#photo#
+		 where email=#email#  	
+		]]>
+		 
+	</update>
+	
+	<select id="check" resultClass = "MemberVo">
+		<![CDATA[
+			select * 
+			  from member
+			where email=#email#
+		]]>
+	</select>
 	
 </sqlMap>

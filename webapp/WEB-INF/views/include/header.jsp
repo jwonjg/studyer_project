@@ -14,7 +14,7 @@
 				</c:when>
 				<c:otherwise>
 					<li><a style="cursor: pointer" data-toggle="modal" data-target="#signUpModal" id="showSignModal">welcome ${ authUser.name }</a></li>
-					<li><a style="cursor: pointer" id="logoutA">LOG OUT</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/logout" style="cursor: pointer" id="logoutA">LOG OUT</a></li>
 				</c:otherwise>
 			</c:choose>
 			</ul>
