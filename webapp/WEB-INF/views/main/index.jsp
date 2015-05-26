@@ -80,5 +80,10 @@
 	<script src="assets/js/waypoints.min.js"></script>
 	<script src="assets/js/jquery.cbpQTRotator.js"></script>
 	<script src="assets/js/custom.js"></script>
+	<script type="text/javascript">
+	$("#goWriteH3").click(function() {
+		location.href = "${pageContext.request.contextPath}/board/write";
+	});
+	</script>
 </body>
 </html>
