@@ -16,12 +16,17 @@ public class MemberService {
 		memberDao.insert(vo);
 	}
 	
-	public MemberVo authUser(MemberVo vo){
-		MemberVo memberVo = memberDao.getMember(vo);
+	public MemberVo authUser(String email, String password){
+		MemberVo memberVo = memberDao.getMember(email, password);
 		return memberVo;
 	}
 	
 	public void UpdateUinfo(MemberVo vo){
 		memberDao.update(vo);
 	}
+
+	public boolean checkEmail(String email) {
+		return memberDao.checkEmail(email);
+	}
+	
 }

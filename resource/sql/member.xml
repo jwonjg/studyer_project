@@ -3,7 +3,7 @@
 <sqlMap namespace="member">
 	<typeAlias alias="MemberVo" type="com.sds.icto.studyer.domain.MemberVo" />
 	
-	<select id="getMember" resultClass = "MemberVo" parameterClass="MemberVo">
+	<select id="getMember" resultClass = "MemberVo" parameterClass="java.util.Map">
 		<![CDATA[
 			select * 
 			  from member
@@ -29,5 +29,13 @@
 		]]>
 		 
 	</update>
+	
+	<select id="check" resultClass = "MemberVo">
+		<![CDATA[
+			select * 
+			  from member
+			where email=#email#
+		]]>
+	</select>
 	
 </sqlMap>

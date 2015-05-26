@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <div id="signUpModal" class="modal fade" tabindex="-1" role="dialog"
 	aria-hidden="true">
 	<div style="margin: 100px auto;" class="modal-dialog">
@@ -33,7 +35,7 @@
 							action="${pageContext.request.contextPath}/member/userinfo">
 					</c:otherwise>
 				</c:choose>
-				<span style="color: #E7746F">ID</span>
+				<span style="color: #E7746F">Email</span>
 				<div class="form-group">
 					<input type="text" id="signUpUserEmail"
 						class="form-control input-lg" placeholder="Email" name="email"
@@ -41,7 +43,7 @@
 				</div>
 				<span style="color: #E7746F">Password</span>
 				<div class="form-group">
-					<input type="password" name="password"
+					<input type="password" id="signUpUserPwd" name="password"
 						value="${sessionScope.authUser.password}"
 						class="form-control input-lg" placeholder="Password">
 				</div>
@@ -49,7 +51,7 @@
 				<div class="form-group">
 					<input type="text" name="name"
 						value="${sessionScope.authUser.name}"
-						class="form-control input-lg" placeholder="Nickname">
+						class="form-control input-lg" placeholder="Name">
 				</div>
 				<span style="color: #E7746F">Photo</span>
 				<div class="form-group">
