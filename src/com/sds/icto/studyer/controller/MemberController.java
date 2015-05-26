@@ -18,24 +18,25 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
-	public String joinForm() {
+	/*@RequestMapping(value = "/signUp", method = RequestMethod.GET)
+	public String signUpForm() {
 		return "/member/signUpform";
-	}
+	}*/
 
-	@RequestMapping(value = "/join", method = RequestMethod.POST)
+	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
 	public String join(@ModelAttribute MemberVo vo) {
 		memberService.joinUser(vo);
 		return "redirect:/index";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/signIn", method = RequestMethod.GET)
 	public String loginForm() {
 		return "/member/signInform";
-	}
+	}*/
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/signIn", method = RequestMethod.POST)
 	public String login(@ModelAttribute MemberVo vo, HttpSession session) {
+		
 		MemberVo memberVo = memberService.authUser(vo);
 
 		// 로그인 실패
@@ -44,19 +45,19 @@ public class MemberController {
 		}
 
 		// 로그인 성공
-		session.setAttribute("authMember", memberVo);
+		session.setAttribute("authUser", memberVo);
 
 		return "redirect:/index";
 	}
 
-	@RequestMapping("/logout")
+	/*@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 
-		session.removeAttribute("authMember");
+		session.removeAttribute("authUser");
 		session.invalidate();
 
 		return "redirect:/index";
-	}
+	}*/
 
 	/*@RequestMapping("/uinfo")
 	public String uinfo(HttpSession session) {
