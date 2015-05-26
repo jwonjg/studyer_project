@@ -30,7 +30,7 @@
 					<c:otherwise>
 						<form onsubmit="return signUpFormCheck();"
 							class="form col-md-12 center-block" method="post"
-							action="${pageContext.request.contextPath}/member/userInfo">
+							action="${pageContext.request.contextPath}/member/userinfo">
 					</c:otherwise>
 				</c:choose>
 				<span style="color: #E7746F">ID</span>
@@ -55,7 +55,7 @@
 				<div class="form-group">
 					<input type="text" id="photo"
 						class="form-control input-lg" placeholder="Photo" name="photo"
-						value="${sessionScope.authUser.email}">
+						value="${sessionScope.authUser.photo}">
 				</div>
 				<div class="form-group">
 					<c:choose>

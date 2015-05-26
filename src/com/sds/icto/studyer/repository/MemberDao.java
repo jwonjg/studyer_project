@@ -25,4 +25,9 @@ public class MemberDao {
 
 		return memberVo;
 	}
+	
+	public void update(MemberVo vo) {
+		sqlMapClientTemplate.update("member.update", vo);
+	}
+	
 }

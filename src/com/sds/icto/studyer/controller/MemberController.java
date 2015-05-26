@@ -50,17 +50,22 @@ public class MemberController {
 		return "redirect:/index";
 	}
 
-	/*@RequestMapping("/logout")
+	@RequestMapping(value = "/userinfo", method = RequestMethod.POST)
+	public String update(@ModelAttribute MemberVo vo, HttpSession session) {
+		memberService.UpdateUinfo(vo);
+		
+		MemberVo memberVo = memberService.authUser(vo);
+		session.setAttribute("authUser", memberVo);
+		return "redirect:/index";
+	}
+	
+	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 
 		session.removeAttribute("authUser");
 		session.invalidate();
 
 		return "redirect:/index";
-	}*/
+	}
 
-	/*@RequestMapping("/uinfo")
-	public String uinfo(HttpSession session) {
-		return "/member/memberinfo";
-	}*/
 }

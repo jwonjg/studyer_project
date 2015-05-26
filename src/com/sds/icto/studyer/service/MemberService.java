@@ -21,4 +21,7 @@ public class MemberService {
 		return memberVo;
 	}
 	
+	public void UpdateUinfo(MemberVo vo){
+		memberDao.update(vo);
+	}
 }

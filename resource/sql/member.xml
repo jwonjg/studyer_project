@@ -21,4 +21,13 @@
 		]]>
 	</insert>
 	
+	<update id="update" parameterClass="MemberVo">
+		<![CDATA[
+		update member
+		 set password=#password#, name=#name#, photo=#photo#
+		 where email=#email#  	
+		]]>
+		 
+	</update>
+	
 </sqlMap>
