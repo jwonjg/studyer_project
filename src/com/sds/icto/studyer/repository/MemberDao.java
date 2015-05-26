@@ -13,7 +13,6 @@ public class MemberDao {
 	SqlMapClientTemplate sqlMapClientTemplate;
 
 	public void insert(MemberVo vo) {
-
 		sqlMapClientTemplate.insert("member.insert", vo);
 	}
 
