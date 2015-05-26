@@ -3,7 +3,7 @@
 <nav class="navbar navbar-custom" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.do">STUDYER</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/index">STUDYER</a>
 		</div>
 		<div class="collapse navbar-collapse" id="custom-collapse">
 			<ul class="nav navbar-nav navbar-right">

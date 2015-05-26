@@ -9,6 +9,13 @@
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <!-- Custom styles CSS -->
 <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
+<style type="text/css">
+	#editor {
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+</style>
 </head>
 <body>
 	<header class="header"> 
@@ -31,14 +38,16 @@
 						action="write.vote?command=writeVote" enctype="multipart/form-data">
 	
 						<div class="form-group">
-							<span style="color: #E7746F">Title</span> <input type="text"
+							<span style="color: #E7746F">Title</span> 
+							<input type="text"
 								name="title" class="form-control" placeholder="Name">
 						</div>
 						<div class="form-group">
 							<span style="color: #E7746F">Content</span>
-							<textarea name="contents" class="form-control" rows="3"
-								placeholder="Content"></textarea>
-						</div>
+							<div>
+							<iframe id="editor" scrolling="no" src="${pageContext.request.contextPath}/assets/editor/editor.jsp"></iframe>
+							</div>
+						</div>	
 						<div class="form-group" style="margin-bottom: 30px;">
 							<span style="color: #E7746F">Options</span>
 							<div id="optionAddingDiv">
@@ -70,7 +79,6 @@
 			</div>
 		</div>
 	</section>
-
 	
 	<footer id="footer">
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
@@ -78,13 +86,13 @@
 
 	<!-- Javascript files -->
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/jquery.parallax-1.1.3.js"></script>
-	<script src="assets/js/jquery.sticky.js"></script>
-	<script src="assets/js/wow.min.js"></script>
-	<script src="assets/js/jquery.easypiechart.js"></script>
-	<script src="assets/js/waypoints.min.js"></script>
-	<script src="assets/js/jquery.cbpQTRotator.js"></script>
-	<script src="assets/js/custom.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.parallax-1.1.3.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.sticky.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/wow.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.easypiechart.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/waypoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.cbpQTRotator.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
 </body>
 </html>

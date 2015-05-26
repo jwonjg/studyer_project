@@ -6,9 +6,16 @@
 <title>STUDYER</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <!-- CSS -->
-<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="${pageContext.request.contextPath}assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <!-- Custom styles CSS -->
 <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
+<style type="text/css">
+	#goSearchDiv {
+		text-align: center;
+		min-height: 70vh;
+		padding-top: 30vh;
+	}
+</style>
 </head>
 <body>
 	<c:import url="/WEB-INF/views/member/signInForm.jsp"/>
@@ -22,47 +29,33 @@
 		<div id="middleNav">
 			<nav style="margin: 30px; min-height: 0px;"
 				class="navbar navbar-custom" role="navigation">
+				<div id="goSearchDiv" class="col-sm-12">
+					<form class="navbar-form" role="search"	action="search" method="post">
+						<input type="text" class="form-control input-lg" placeholder="주제" 
+								name="subject" value="${requestScope.subject}">
+						<input type="text" class="form-control input-lg" placeholder="강사" 
+								name="teacher" value="${requestScope.teacher}">
+						<input type="text" class="form-control input-lg" placeholder="기관" 
+								name="place" value="${requestScope.place}">
+						<input type="text" class="form-control input-lg" placeholder="강의명" 
+							name="name" value="${requestScope.name}">
+						<c:choose>
+							<c:when test="${ empty authUser }">
+								<button type="submit" class="btn input-lg searchBtn" disabled="disabled">search</button>
+							</c:when>
+							<c:otherwise>
+								<button type="submit" class="btn input-lg searchBtn">search</button>
+							</c:otherwise>
+						</c:choose>
+					</form>
+				</div>
 				<div class="col-sm-6 col-md-6">
 					<h3 id="goWriteH3" style="cursor: pointer" class="text-center">write</h3>
 				</div>
 				<div class="col-sm-6 col-md-6">
-					<h3 id="goMyVote" style="cursor: pointer" class="text-center">my vote</h3>
+					<h3 id="goMyVote" style="cursor: pointer" class="text-center">my note</h3>
 				</div>
 			</nav>
-		</div>
-		<div class="container">
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<form class="navbar-form navbar-right" role="search"
-					action="search.vote" method="post">
-					<input type="hidden" name="command" value="searchVote" />
-					<div class="input-group">
-						<input type="text" class="form-control input-sm" placeholder="Search" 
-							name="searchString" value="${requestScope.searchString}">
-						<div class="input-group-btn">
-							<c:choose>
-								<c:when test="${ empty authUser }">
-									<button type="submit" class="btn input-sm" disabled="disabled">search</button>
-								</c:when>
-								<c:otherwise>
-									<button type="submit" class="btn input-sm">search</button>
-								</c:otherwise>
-							</c:choose>
-						</div>
-					</div>
-				</form>
-				<table class="table">
-					<thead>
-						<tr>
-							<td>Title</td>
-							<td>Done/Ongoing</td>
-							<td>Participants</td>
-							<td>Proposer</td>
-						</tr>
-					</thead>
-					<tbody>
-					</tbody>
-				</table>
-			</div>
 		</div>
 	</section>
 	
