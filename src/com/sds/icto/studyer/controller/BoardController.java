@@ -4,13 +4,15 @@ import java.io.FileOutputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sds.icto.studyer.domain.BoardVo;
+import com.sds.icto.studyer.domain.*;
 import com.sds.icto.studyer.service.BoardService;
 
 @Controller
@@ -31,6 +33,7 @@ public class BoardController {
 			@RequestParam String place, @RequestParam String name,
 			@RequestParam("file") MultipartFile file) {
 
+		
 		vo.setFile_url(file.getOriginalFilename());
 
 		int seqno = boardService.boardInsert(vo, subject, teacher, place, name);
@@ -68,9 +71,22 @@ public class BoardController {
 		}
 	}
 
-	@RequestMapping(value = "/detail")
-	public String detail() {
+	@RequestMapping(value = {"/detail/{no}"}, method=RequestMethod.GET)
+	public String detail(@PathVariable int no, Model model) {
+		model.addAttribute("no",no);
+		BoardVo vo2 = boardService.boardDetail(no);
+		model.addAttribute("vo2",vo2);
+		
+		ClassVo vo = boardService.boardClassDetail(no);
+		System.out.println(vo.getSubjectName());
+		System.out.println(vo.getTeacherName());
+		System.out.println(vo.getPlaceName());
+		System.out.println(vo.getNameName());
+		model.addAttribute("c_vo",vo);
+		
 		return "board/detail";
 	}
+	
+
 
 }

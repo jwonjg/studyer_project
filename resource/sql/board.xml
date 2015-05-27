@@ -6,7 +6,7 @@
 	<typeAlias alias="ClassPlaceVo" type="com.sds.icto.studyer.domain.ClassPlaceVo" />
 	<typeAlias alias="ClassSubjectVo" type="com.sds.icto.studyer.domain.ClassSubjectVo" />
 	<typeAlias alias="ClassTeacherVo" type="com.sds.icto.studyer.domain.ClassTeacherVo" />
-
+	
 	<insert id="insert" parameterClass="BoardVo">
 	
 		<selectKey keyProperty="no" resultClass="java.lang.Integer">
@@ -23,6 +23,39 @@
 		]]>
 	</insert>
 	
+	<select id="detail" resultClass="BoardVo">
+		<![CDATA[
+		select *
+		  from share_board where no=#no#
+		]]>
+		
+	</select>
+	
+	<select id="subjectDetail" resultClass="java.lang.String">
+		<![CDATA[
+		select name
+		  from class_subject where no=#no#
+		]]>
+		</select>
+		
+	<select id="teacherDetail" resultClass="java.lang.String">	
+		<![CDATA[
+		select name
+		  from class_teacher where no=#no#
+		]]>
+	</select>
+	<select id="placeDetail" resultClass="java.lang.String">	
+		<![CDATA[
+		select name
+		  from class_place where no=#no#
+		]]>
+	</select>
+	<select id="nameDetail" resultClass="java.lang.String">	
+		<![CDATA[
+		select name
+		  from class_name where no=#no#
+		]]>
+	</select>
 	
 </sqlMap>
 

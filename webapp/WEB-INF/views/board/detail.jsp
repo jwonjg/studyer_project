@@ -28,19 +28,21 @@
 					<div class="form-group">
 						<span style="color: #E7746F">Category</span> 
 						<div>
-							<h4>주제 > 강사 > 기관 > 강의명</h4>
+						<h4>
+							${c_vo.subjectName }>${c_vo.teacherName }>${c_vo.placeName }>${c_vo.nameName }
+						</h4>	
 						</div>
 					</div>
 					<div class="form-group" >
 						<span style="color: #E7746F">Attachment</span>
 						<div>
-							<h4>File name</h4>
+							<a href="/document/${vo2.no}.jpg/">${vo2.file_url }</a>
 						</div>
 					</div>
 					<div class="form-group">
 						<span style="color: #E7746F">Content</span>
 						<div>
-							<h4>Content</h4>
+							${vo2.content}
 						</div>
 					</div>
 			</div>
