@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sds.icto.studyer.domain.BoardVo;
+import com.sds.icto.studyer.domain.MemberVo;
 import com.sds.icto.studyer.repository.BoardDao;
 import com.sds.icto.studyer.repository.ClassDao;
 
@@ -17,7 +18,7 @@ public class BoardService {
 	@Autowired
 	ClassDao classDao;
 	
-	public void boardInsert(BoardVo vo, String subject, String teacher, String place, String name){
+	public int boardInsert(BoardVo vo, String subject, String teacher, String place, String name){
 		
 		int class_subject_no = classDao.subjectWrite(subject);
 		int class_teacher_no = classDao.teacherWrite(teacher);
@@ -30,9 +31,11 @@ public class BoardService {
 		vo.setClass_place_no(class_place_no);
 		vo.setClass_name_no(class_name_no);
 		
-		boardDao.write(vo);
+		
+		
+		int newNo = boardDao.write(vo);
+		return newNo;
 	}
-	
 	
 	
 	

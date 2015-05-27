@@ -55,13 +55,13 @@
 							<div id="optionDiv"	class="input-group form-control">
 								<input type="hidden" name="isImageExist" value="false">
 								<!-- 사진 -->
-								<input name="optionImageFile" type="file"
+								<input id="uploadFile" name="file" type="file"
 									style="visibility: hidden; display: inline-block; width: 0px;">
 								<!-- 사진이름 -->
-								<input readonly="readonly" name="optionTitle" style="border: none; padding: 0;"
+								<input id="uploadFileName" readonly="readonly" name="optionTitle" style="border: none; padding: 0;"
 									type="text" class="form-control input-lg" placeholder="Attached File">
 								<div class="input-group-btn">
-									<button name="optionImage" type="button"
+									<button id="uploadFileButton" name="optionImage" type="button"
 										class="btn btn-default">file upload</button>
 									<button name="optionDelete"
 										style="padding: 10px; background: none; visibility: hidden;"
@@ -101,6 +101,18 @@
 		function submitWrite() {
 			$("#writeForm").submit();
 		}	
+		
+		$("#uploadFileButton").on("click", function() {
+			$("#uploadFile").click();
+		});
+		$("#uploadFile").on(
+				"change",
+				function() {
+					
+					$("#uploadFileName").attr("value",
+							$(this).val().split('/').pop().split('\\').pop());
+			});
+		
 	</script>
 </body>
 </html>

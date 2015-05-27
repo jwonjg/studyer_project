@@ -8,13 +8,21 @@
 	<typeAlias alias="ClassTeacherVo" type="com.sds.icto.studyer.domain.ClassTeacherVo" />
 
 	<insert id="insert" parameterClass="BoardVo">
+	
+		<selectKey keyProperty="no" resultClass="java.lang.Integer">
+			<![CDATA[
+			select share_board_no_seq.nextval as no from dual
+			]]>
+		</selectKey>
+	
 		<![CDATA[
 		insert
 		  into share_board
-		values ( share_board_no_seq.nextval, #class_subject_no#, #class_teacher_no#, #class_place_no#, #class_name_no#,
+		values ( #no#, #class_subject_no#, #class_teacher_no#, #class_place_no#, #class_name_no#,
 		 #title#, #content#, #file_url#, 0, sysdate)
 		]]>
 	</insert>
+	
 	
 </sqlMap>
 
