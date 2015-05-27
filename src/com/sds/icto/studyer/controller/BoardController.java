@@ -18,4 +18,9 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@RequestMapping(value="/detail")
+	public String detail(){
+		return "board/detail";
+	}
+	
 }

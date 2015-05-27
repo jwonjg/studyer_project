@@ -10,6 +10,29 @@
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <!-- Custom styles CSS -->
 <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
+<style type="text/css">
+#inputTable thead tr:last-child td {
+	border-top: none;
+	border-bottom: 1px solid #666;
+	padding-bottom: 20px;
+}
+#inputTable tbody tr:first-child td {
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+#inputTable tbody td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+h3, h5, h6 {
+	text-transform: none;
+}
+#inputTable a {
+	cursor: pointer;
+}
+
+
+</style>
 </head>
 <body>
 	<header class="header"> 
@@ -19,59 +42,166 @@
 	<section id="contact" class="pfblock">
 		<div class="container">
 			<div class="col-sm-8 col-sm-offset-2">
-				<table class="table">
+				<table id="inputTable" class="table">
 					<thead>
-						<tr>
-							<td colspan="4">
-							<form style="margin: 0;" class="navbar-form navbar-right" role="search" action="search.vote" method="post">
-								<input type="hidden" name="command" value="searchVote" />
-								<div class="input-group">
-									<input type="text" class="form-control input-sm"
-										placeholder="Search" name="searchStr"
-										value="${requestScope.searchStr}">
-									<div class="input-group-btn">
-										<button type="submit" class="btn input-sm">search</button>
-									</div>
-								</div>
-							</form>
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<input type="text" class="form-control input-lg" placeholder="주제" 
-									name="subject" value="${requestScope.subject}">
-							</td>
-							<td>
-							<input type="text" class="form-control input-lg" placeholder="강사" 
-									name="teacher" value="${requestScope.teacher}">
-							</td>
-							<td>
-							<input type="text" class="form-control input-lg" placeholder="기관" 
-									name="place" value="${requestScope.place}">
-							</td>
-							<td>
-							<input type="text" class="form-control input-lg col-2" placeholder="강의명" 
-								name="name" value="${requestScope.name}">
-							</td>
-						</tr>
+					<tr>
+						<td>
+						<input type="text" class="form-control input-lg" placeholder="주제" 
+								name="subject" value="${requestScope.subject}">
+						</td>
+						<td>
+						<input type="text" class="form-control input-lg" placeholder="강사" 
+								name="teacher" value="${requestScope.teacher}">
+						</td>
+						<td>
+						<input type="text" class="form-control input-lg" placeholder="기관" 
+								name="place" value="${requestScope.place}">
+						</td>
+						<td>
+						<input type="text" class="form-control input-lg col-2" placeholder="강의명" 
+							name="name" value="${requestScope.name}">
+						</td>
+					</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>
-							<input type="text" class="form-control input-lg" placeholder="주제" 
-									name="subject" value="${requestScope.subject}">
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3><a href="${pageContext.request.contextPath}/board/detail">제목 예시</a></h3>
 							</td>
-							<td>
-							<input type="text" class="form-control input-lg" placeholder="강사" 
-									name="teacher" value="${requestScope.teacher}">
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
 							</td>
-							<td>
-							<input type="text" class="form-control input-lg" placeholder="기관" 
-									name="place" value="${requestScope.place}">
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
 							</td>
-							<td>
-							<input type="text" class="form-control input-lg col-2" placeholder="강의명" 
-								name="name" value="${requestScope.name}">
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
+							</td>
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
+							</td>
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
+							</td>
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
+							</td>
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
+							</td>
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
+							</td>
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
+							</td>
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><h6>주제aa</h6></td>
+							<td><h6>강사aa</h6></td>
+							<td><h6>기관aa</h6></td>
+							<td><h6>강의명aa</h6></td>
+						</tr>
+						<tr>
+							<td style="border-top: none;" colspan="3">
+								<h3>제목 예시</h3>
+							</td>
+							<td style="border-top: none;">
+								<h3>2015.05.27</h3>
 							</td>
 						</tr>
 					</tbody>
