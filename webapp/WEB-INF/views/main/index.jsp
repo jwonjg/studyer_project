@@ -156,7 +156,7 @@
 				
 				$("#uploadImageName").attr("value",
 						$(this).val().split('/').pop().split('\\').pop());
-			});
+		});
 	
 	
 	</script>
