@@ -64,4 +64,28 @@
 		]]>
 	</select>
 	
+	<select id="selectSubjectList" resultClass="java.lang.String">
+		<![CDATA[
+		select name
+		  from class_subject order by count desc
+		]]>
+	</select>
+	<select id="selectTeacherList" resultClass="java.lang.String">
+		<![CDATA[
+		select name
+		  from class_teacher order by count desc
+		]]>
+	</select>
+	<select id="selectPlaceList" resultClass="java.lang.String">
+		<![CDATA[
+		select name
+		  from class_place order by count desc
+		]]>
+	</select>
+	<select id="selectNameList" resultClass="java.lang.String">
+		<![CDATA[
+		select name
+		  from class_name order by count desc
+		]]>
+	</select>
 </sqlMap>

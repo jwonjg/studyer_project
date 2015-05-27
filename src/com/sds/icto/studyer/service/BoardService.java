@@ -2,10 +2,9 @@ package com.sds.icto.studyer.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sds.icto.studyer.domain.*;
-import com.sds.icto.studyer.domain.MemberVo;
+import com.sds.icto.studyer.domain.BoardVo;
+import com.sds.icto.studyer.domain.ClassVo;
 import com.sds.icto.studyer.repository.BoardDao;
 import com.sds.icto.studyer.repository.ClassDao;
 
@@ -46,8 +45,5 @@ public class BoardService {
 		ClassVo c_vo = boardDao.detailClass(no);
 		return c_vo;
 	}
-	
-	
-	
 	
 }

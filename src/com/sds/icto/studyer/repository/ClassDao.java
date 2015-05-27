@@ -1,5 +1,7 @@
 package com.sds.icto.studyer.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
@@ -59,6 +61,23 @@ public class ClassDao {
 			class_name_no = (int) sqlMapClientTemplate.queryForObject("class.nameFind", name);
 		}
 		return class_name_no;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<String> selectSubjectClassList() {
+		return sqlMapClientTemplate.queryForList("class.selectSubjectList");
+	}
+	@SuppressWarnings("unchecked")
+	public List<String> selectTeacherClassList() {
+		return sqlMapClientTemplate.queryForList("class.selectTeacherList");
+	}
+	@SuppressWarnings("unchecked")
+	public List<String> selectPlaceClassList() {
+		return sqlMapClientTemplate.queryForList("class.selectPlaceList");
+	}
+	@SuppressWarnings("unchecked")
+	public List<String> selectNameClassList() {
+		return sqlMapClientTemplate.queryForList("class.selectNameList");
 	}
 
 }

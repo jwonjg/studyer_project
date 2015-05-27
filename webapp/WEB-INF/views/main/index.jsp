@@ -32,13 +32,13 @@
 				class="navbar navbar-custom" role="navigation">
 				<div id="goSearchDiv" class="col-sm-12">
 					<form class="navbar-form" role="search"	action="search" method="post">
-						<input type="text" class="form-control input-lg" placeholder="주제" 
+						<input type="text" class="class form-control input-lg" placeholder="주제" 
 								name="subject" value="${requestScope.subject}">
-						<input type="text" class="form-control input-lg" placeholder="강사" 
+						<input type="text" class="class form-control input-lg" placeholder="강사" 
 								name="teacher" value="${requestScope.teacher}">
-						<input type="text" class="form-control input-lg" placeholder="기관" 
+						<input type="text" class="class form-control input-lg" placeholder="기관" 
 								name="place" value="${requestScope.place}">
-						<input type="text" class="form-control input-lg" placeholder="강의명" 
+						<input type="text" class="class form-control input-lg" placeholder="강의명" 
 							name="name" value="${requestScope.name}">
 						<button type="submit" class="btn input-lg searchBtn">search</button>
 					</form>
@@ -159,36 +159,29 @@
 				$("#uploadImageName").attr("value",
 						$(this).val().split('/').pop().split('\\').pop());
 		});
-	
-	$(function() {
-		var availableTags = [
-			"ActionScript",
-			"AppleScript",
-			"Asp",
-			"BASIC",
-			"C",
-			"C++",
-			"Clojure",
-			"COBOL",
-			"ColdFusion",
-			"Erlang",
-			"Fortran",
-			"Groovy",
-			"Haskell",
-			"Java",
-			"JavaScript",
-			"Lisp",
-			"Perl",
-			"PHP",
-			"Python",
-			"Ruby",
-			"Scala",
-			"Scheme"
-		];
-		$( "input[name='subject']" ).autocomplete({
-			source: availableTags
+
+	$(".class").focus(function(){
+		var categoryName = $(this).attr("name");
+		$.ajax({
+			url : "${pageContext.request.contextPath}/class/"+categoryName,
+			type : "post",
+			success : function( response ){
+				$("input[name='"+categoryName+"']").autocomplete("option", "source", response);
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:"
+						+ request.responseText + "\n" + "error:" + error);
+			},
+			dataType : "json"
 		});
 	});
+	
+	$(function() {
+	    $( "input[name='subject']" ).autocomplete();
+	    $( "input[name='teacher']" ).autocomplete();
+	    $( "input[name='place']" ).autocomplete();
+	    $( "input[name='name']" ).autocomplete();
+	  });
 	</script>
 </body>
 </html>
