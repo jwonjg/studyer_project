@@ -1,6 +1,6 @@
 package com.sds.icto.studyer.domain;
 
-public class ShareBoardVo {
+public class BoardVo {
 
 	private int no;
 	private int class_subject_no;
@@ -12,6 +12,7 @@ public class ShareBoardVo {
 	private String file_url;
 	private int good;
 	private String reg_date;
+	
 	public int getNo() {
 		return no;
 	}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="class">
+	<typeAlias alias="subject" type="com.sds.icto.studyer.domain.ClassSubjectVo"/>
+	<insert id="subjectInsert">
+		<![CDATA[
+		insert
+		  into class_subject
+		values ( class_subject_no_seq.nextval, #subject#, 0)
+		]]>
+	</insert>
+
+	<insert id="teacherInsert">	
+		<![CDATA[
+		insert
+		  into class_teacher
+		values ( class_teacher_no_seq.nextval, #teacher#, 0)
+		]]>
+
+	</insert>
+	
+	<insert id="placeInsert">	
+		<![CDATA[
+		insert
+		  into class_place
+		values ( class_place_no_seq.nextval, #place#, 0)
+		]]>
+
+	</insert>
+
+	<insert id="nameInsert">	
+		<![CDATA[
+		insert
+		  into class_name
+		values ( class_name_no_seq.nextval, #name#, 0)
+		]]>
+	</insert>
+
+	<select id="subjectFind">
+		<![CDATA[
+		select class_subject_no
+		  from class_subject where name=#subject#
+		]]>
+	</select>
+	
+	<select id="teacherFind">
+		<![CDATA[
+		select no
+		  from class_teacher where name=#teacher#
+		]]>
+	</select>
+	
+	<select id="placeFind">
+		<![CDATA[
+		select no
+		  from class_place where name=#place#
+		]]>
+	</select>
+	
+	<select id="nameFind">
+		<![CDATA[
+		select no
+		  from class_name where name=#name#
+		]]>
+	</select>
+	
+</sqlMap>

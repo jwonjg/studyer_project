@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="board">
+	<typeAlias alias="BoardVo" type="com.sds.icto.studyer.domain.BoardVo" />
+	<typeAlias alias="ClassNameVo" type="com.sds.icto.studyer.domain.ClassNameVo" />
+	<typeAlias alias="ClassPlaceVo" type="com.sds.icto.studyer.domain.ClassPlaceVo" />
+	<typeAlias alias="ClassSubjectVo" type="com.sds.icto.studyer.domain.ClassSubjectVo" />
+	<typeAlias alias="ClassTeacherVo" type="com.sds.icto.studyer.domain.ClassTeacherVo" />
+
+	<insert id="insert" parameterClass="BoardVo">
+		<![CDATA[
+		insert
+		  into share_board
+		values ( share_board_no_seq.nextval, #class_subject_no#, #class_teacher_no#, #class_place_no#, #class_name_no#,
+		 #title#, #content#, #file_url#, 0, sysdate)
+		]]>
+	</insert>
+	
+</sqlMap>
+
+

@@ -37,9 +37,6 @@
 		
 	</insert>
 	
-	
-	
-	
 	<update id="update" parameterClass="MemberVo">
 		<![CDATA[
 		update member
