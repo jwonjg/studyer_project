@@ -42,7 +42,21 @@
 						<div>
 							<h4>Content</h4>
 						</div>
-					</div>	
+					</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-lg-12 calltoaction-btn" style="margin: 20px 0;">
+					<button
+						onclick="location.href='resultForm.vote?command=resultForm'"
+						style="background: rgba(17, 17, 17, 0.8); color: white; border: 1px solid rgba(17, 17, 17, 0.8);"
+						class="btn btn-lg btn-default" >like</button>
+					<c:if test="${ sessionScope.currentUserId eq requestScope.voteForm.vote.userId }">
+						<a style="background: #E7746F; color: white;" class="btn btn-lg btn-default">delete</a>
+					</c:if>
+					<a title="vote" id="resultToggleA"
+						style="border-color: #E7746F; border-width: 1px; border-style: solid; color: #E7746F;"
+						class="btn btn-lg">edit this note</a>
+				</div>
 			</div>
 		</div>
 	</section>

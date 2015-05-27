@@ -2,6 +2,7 @@ package com.sds.icto.studyer.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sds.icto.studyer.domain.BoardVo;
 import com.sds.icto.studyer.repository.BoardDao;
@@ -12,10 +13,11 @@ public class BoardService {
 	
 	@Autowired
 	BoardDao boardDao;
+
+	@Autowired
 	ClassDao classDao;
 	
 	public void boardInsert(BoardVo vo, String subject, String teacher, String place, String name){
-		
 		
 		int class_subject_no = classDao.subjectWrite(subject);
 		int class_teacher_no = classDao.teacherWrite(teacher);

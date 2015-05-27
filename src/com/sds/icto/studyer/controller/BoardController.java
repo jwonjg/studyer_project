@@ -27,6 +27,10 @@ public class BoardController {
 	@RequestMapping(value="/write", method=RequestMethod.POST)
 	public String write(@ModelAttribute BoardVo vo, @RequestParam String subject, 
 			@RequestParam String teacher, @RequestParam String place, @RequestParam String name){
+		
+		System.out.println(vo);
+		System.out.println(teacher);
+		System.out.println(subject);
 /*		
 		int class_subject_no = boardService.subjectInsert(subject);
 		int class_teacher_no = boardService.teacherInsert(teacher);

@@ -14,13 +14,13 @@ public class ClassDao {
 
 		int class_subject_no = 0;
 
+		System.out.println(subject);
 		if (sqlMapClientTemplate.queryForObject("class.subjectFind", subject) == null) {
 			sqlMapClientTemplate.insert("class.subjectInsert", subject);
 			class_subject_no = (int)sqlMapClientTemplate.queryForObject("class.subjectFind", subject) ;
 		} else {
 			class_subject_no = (int) sqlMapClientTemplate.queryForObject("class.subjectFind", subject);
 		}
-
 		return class_subject_no;
 
 	}

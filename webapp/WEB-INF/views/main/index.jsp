@@ -66,6 +66,7 @@
 	<script src="assets/js/waypoints.min.js"></script>
 	<script src="assets/js/jquery.cbpQTRotator.js"></script>
 	<script src="assets/js/custom.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script type="text/javascript">
 	$("#goWriteH3").click(function() {
 		location.href = "${pageContext.request.contextPath}/board/write";
@@ -158,7 +159,35 @@
 						$(this).val().split('/').pop().split('\\').pop());
 		});
 	
-	
+	$(function() {
+		var availableTags = [
+			"ActionScript",
+			"AppleScript",
+			"Asp",
+			"BASIC",
+			"C",
+			"C++",
+			"Clojure",
+			"COBOL",
+			"ColdFusion",
+			"Erlang",
+			"Fortran",
+			"Groovy",
+			"Haskell",
+			"Java",
+			"JavaScript",
+			"Lisp",
+			"Perl",
+			"PHP",
+			"Python",
+			"Ruby",
+			"Scala",
+			"Scheme"
+		];
+		$( "input[name='subject']" ).autocomplete({
+			source: availableTags
+		});
+	});
 	</script>
 </body>
 </html>

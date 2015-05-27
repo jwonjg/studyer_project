@@ -36,28 +36,28 @@
 		]]>
 	</insert>
 
-	<select id="subjectFind">
+	<select id="subjectFind" resultClass="java.lang.Integer" parameterClass="java.lang.String">
 		<![CDATA[
-		select class_subject_no
+		select no
 		  from class_subject where name=#subject#
 		]]>
 	</select>
 	
-	<select id="teacherFind">
+	<select id="teacherFind" resultClass="java.lang.Integer" parameterClass="java.lang.String">
 		<![CDATA[
 		select no
 		  from class_teacher where name=#teacher#
 		]]>
 	</select>
 	
-	<select id="placeFind">
+	<select id="placeFind" resultClass="java.lang.Integer" parameterClass="java.lang.String">
 		<![CDATA[
 		select no
 		  from class_place where name=#place#
 		]]>
 	</select>
 	
-	<select id="nameFind">
+	<select id="nameFind" resultClass="java.lang.Integer" parameterClass="java.lang.String">
 		<![CDATA[
 		select no
 		  from class_name where name=#name#
