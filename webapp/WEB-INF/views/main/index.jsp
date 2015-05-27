@@ -5,6 +5,7 @@
 <head>
 <title>STUDYER</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!-- CSS -->
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <!-- Custom styles CSS -->
