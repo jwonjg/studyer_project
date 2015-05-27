@@ -4,87 +4,95 @@
 <!doctype html>
 <html>
 <head>
-<title>mysite</title>
+<title>STUDYER</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<link href="${pageContext.request.contextPath}/assets/css/guestbook.css" rel="stylesheet" type="text/css">
+<!-- CSS -->
+<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<!-- Custom styles CSS -->
+<link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<jsp:include page="/WEB-INF/views/include/header.jsp" flush="false"/>
-		</div>
-		<div id="content">
-			<div id="guestbook">
-				<form action="${pageContext.request.contextPath}/board/insert" method="post" enctype="multipart/form-data">
-					<table>
+	<header class="header"> 
+		<c:import url="/WEB-INF/views/include/header.jsp"/>
+	</header>
+
+	<section id="contact" class="pfblock">
+		<div class="container">
+			<div class="col-sm-8 col-sm-offset-2">
+				<table class="table">
+					<thead>
 						<tr>
-							<td>제목</td><td><input type="text" name="title"></td>
-						</tr>
-						<tr>
-							<td>첨부파일</td><td><input type="file" name="file"></td>
-						</tr>
-						<tr>
-							<td colspan=2><textarea name="content" id="content"></textarea></td>
-						</tr>
-						<tr>
-							<td colspan=4 align=right><input type="submit" VALUE=" 확인 "></td>
-						</tr>
-					</table>
-				</form>
-				<br>
-				<form action="${pageContext.request.contextPath}/board/search" method="post">
-					<table>
-						<tr>
-							<td>게시물 검색</td>
-							<td>
-								<select name="searchOption">
-									<option value="both" selected="selected">제목+내용</option>
-									<option value="title">제목</option>
-									<option value="content">내용</option>
-								</select>
-								<input type="text" name="keyword">
-								<input type="submit" value="찾기">
+							<td colspan="4">
+							<form style="margin: 0;" class="navbar-form navbar-right" role="search" action="search.vote" method="post">
+								<input type="hidden" name="command" value="searchVote" />
+								<div class="input-group">
+									<input type="text" class="form-control input-sm"
+										placeholder="Search" name="searchStr"
+										value="${requestScope.searchStr}">
+									<div class="input-group-btn">
+										<button type="submit" class="btn input-sm">search</button>
+									</div>
+								</div>
+							</form>
 							</td>
 						</tr>
-					</table>
-				</form>
-				<br>
-				<table>
-					<tr>
-						<th>글쓴이</th>
-						<th>제목</th>
-						<th>첨부파일</th>
-						<th>조회수</th>
-						<th>작성일</th>
-					</tr>
-				<c:forEach var="item" items="${ requestScope.list }">
-					<tr>
-						<td>${ pageScope.item.userName}</td>
-						<td><a href="${pageContext.request.contextPath}/board/detail/${ pageScope.item.no}">${ pageScope.item.title}</a></td>
-						<c:choose>
-						<c:when test="${ not empty pageScope.item.fileName }">
-							<td>첨부파일 있음</td>
-						</c:when>
-						<c:otherwise>
-							<td>첨부파일 없음</td>
-						</c:otherwise>
-						</c:choose>
-						<td>${ pageScope.item.clicks }</td>
-						<td>${ pageScope.item.regDate}</td>
-					</tr>
-				</c:forEach>
+						<tr>
+							<td>
+							<input type="text" class="form-control input-lg" placeholder="주제" 
+									name="subject" value="${requestScope.subject}">
+							</td>
+							<td>
+							<input type="text" class="form-control input-lg" placeholder="강사" 
+									name="teacher" value="${requestScope.teacher}">
+							</td>
+							<td>
+							<input type="text" class="form-control input-lg" placeholder="기관" 
+									name="place" value="${requestScope.place}">
+							</td>
+							<td>
+							<input type="text" class="form-control input-lg col-2" placeholder="강의명" 
+								name="name" value="${requestScope.name}">
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+							<input type="text" class="form-control input-lg" placeholder="주제" 
+									name="subject" value="${requestScope.subject}">
+							</td>
+							<td>
+							<input type="text" class="form-control input-lg" placeholder="강사" 
+									name="teacher" value="${requestScope.teacher}">
+							</td>
+							<td>
+							<input type="text" class="form-control input-lg" placeholder="기관" 
+									name="place" value="${requestScope.place}">
+							</td>
+							<td>
+							<input type="text" class="form-control input-lg col-2" placeholder="강의명" 
+								name="name" value="${requestScope.name}">
+							</td>
+						</tr>
+					</tbody>
 				</table>
-				<br>
 			</div>
 		</div>
-		<div id="navigation">
-			<c:import url="/WEB-INF/views/include/navigation.jsp">
-				<c:param name="type" value="board"></c:param>
-			</c:import>
-		</div>
-		<div id="footer">
-			<p>(c)opyright 2014 </p>
-		</div>
-	</div>
+	</section>
+	
+	<footer id="footer">
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+	</footer>
+
+	<!-- Javascript files -->
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.parallax-1.1.3.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.sticky.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/wow.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.easypiechart.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/waypoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.cbpQTRotator.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
 </body>
 </html>

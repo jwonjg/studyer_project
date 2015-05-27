@@ -6,7 +6,7 @@
 <title>STUDYER</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <!-- CSS -->
-<link href="${pageContext.request.contextPath}assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <!-- Custom styles CSS -->
 <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
 <style type="text/css">
@@ -39,14 +39,7 @@
 								name="place" value="${requestScope.place}">
 						<input type="text" class="form-control input-lg" placeholder="강의명" 
 							name="name" value="${requestScope.name}">
-						<c:choose>
-							<c:when test="${ empty authUser }">
-								<button type="submit" class="btn input-lg searchBtn" disabled="disabled">search</button>
-							</c:when>
-							<c:otherwise>
-								<button type="submit" class="btn input-lg searchBtn">search</button>
-							</c:otherwise>
-						</c:choose>
+						<button type="submit" class="btn input-lg searchBtn">search</button>
 					</form>
 				</div>
 				<div class="col-sm-6 col-md-6">

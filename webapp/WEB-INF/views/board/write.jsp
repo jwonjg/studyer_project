@@ -12,7 +12,7 @@
 <style type="text/css">
 	#editor {
 		width: 100%;
-		height: 100%;
+		height: 350px;
 		border: none;
 	}
 </style>
@@ -24,58 +24,61 @@
 
 	<section id="contact" class="pfblock">
 		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-sm-offset-3">
-					<div class="pfblock-header">
-						<h2 class="pfblock-title">Write new subject</h2>
-						<div class="pfblock-line"></div>
-					</div>
+			<div class="col-sm-8 col-sm-offset-2">
+				<div class="pfblock-header">
+					<h2 class="pfblock-title">Write new subject</h2>
+					<div class="pfblock-line"></div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-6 col-sm-offset-3">
-					<form id="optionForm" method="post"
-						action="write.vote?command=writeVote" enctype="multipart/form-data">
-	
-						<div class="form-group">
-							<span style="color: #E7746F">Title</span> 
-							<input type="text"
-								name="title" class="form-control" placeholder="Name">
+			<div class="col-sm-8 col-sm-offset-2">
+				<form id="writeForm" method="post" action="${pageContext.request.contextPath}/board/write" enctype="multipart/form-data">
+					<div style="padding: 0;" class="navbar-form">
+						<span style="color: #E7746F">Category</span> 
+						<div>
+						<input type="text" class="form-control input-lg" placeholder="주제" 
+								name="subject" value="${requestScope.subject}">
+						<input type="text" class="form-control input-lg" placeholder="강사" 
+								name="teacher" value="${requestScope.teacher}">
+						<input type="text" class="form-control input-lg" placeholder="기관" 
+								name="place" value="${requestScope.place}">
+						<input type="text" class="form-control input-lg" placeholder="강의명" 
+							name="name" value="${requestScope.name}">
 						</div>
-						<div class="form-group">
-							<span style="color: #E7746F">Content</span>
-							<div>
-							<iframe id="editor" scrolling="no" src="${pageContext.request.contextPath}/assets/editor/editor.jsp"></iframe>
-							</div>
-						</div>	
-						<div class="form-group" style="margin-bottom: 30px;">
-							<span style="color: #E7746F">Options</span>
-							<div id="optionAddingDiv">
-								<div id="optionDiv" style="margin-bottom: 5px;"
-									class="input-group form-control">
-									<input type="hidden" name="isImageExist" value="false">
-									<!-- 사진 -->
-									<input name="optionImageFile" type="file"
-										style="visibility: hidden; display: inline-block; width: 0px;">
-									<!-- 옵션이름 -->
-									<input name="optionTitle" style="border: none; padding: 0;"
-										type="text" class="form-control" placeholder="Options">
-									<div class="input-group-btn">
-										<button name="optionImage" type="button"
-											class="btn btn-default">append image</button>
-										<button name="optionDelete"
-											style="padding: 10px; background: none; visibility: hidden;"
-											type="button" class="btn btn-default">x</button>
-									</div>
+					</div>
+					<div class="form-group">
+						<span style="color: #E7746F">Title</span> 
+						<input style="height: 40px;" type="text" name="title" class="form-control input-lg" placeholder="Title">
+					</div>
+					<div class="form-group" >
+						<span style="color: #E7746F">Attachment</span>
+						<div id="optionAddingDiv">
+							<div id="optionDiv"	class="input-group form-control">
+								<input type="hidden" name="isImageExist" value="false">
+								<!-- 사진 -->
+								<input name="optionImageFile" type="file"
+									style="visibility: hidden; display: inline-block; width: 0px;">
+								<!-- 사진이름 -->
+								<input readonly="readonly" name="optionTitle" style="border: none; padding: 0;"
+									type="text" class="form-control input-lg" placeholder="Attached File">
+								<div class="input-group-btn">
+									<button name="optionImage" type="button"
+										class="btn btn-default">file upload</button>
+									<button name="optionDelete"
+										style="padding: 10px; background: none; visibility: hidden;"
+										type="button" class="btn btn-default">x</button>
 								</div>
 							</div>
-							<a style="cursor: pointer;" id="addOptionA" class="pull-right">add
-								new option</a>
 						</div>
-						<button onclick="submitWrite();" type="button" class="btn btn-lg btn-block wow fadeInUp"
-							data-wow-delay=".3s">start</button>
-					</form>
-				</div>
+					</div>
+					<div class="form-group">
+						<span style="color: #E7746F">Content</span>
+						<div>
+						<iframe id="editor" scrolling="no" src="${pageContext.request.contextPath}/assets/editor/editor.jsp"></iframe>
+						</div>
+					</div>	
+					
+					<button onclick="submitWrite();" type="button" class="btn btn-lg btn-block wow fadeInUp">write</button>
+				</form>
 			</div>
 		</div>
 	</section>
@@ -94,5 +97,10 @@
 	<script src="${pageContext.request.contextPath}/assets/js/waypoints.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.cbpQTRotator.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
+	<script type="text/javascript">
+		function submitWrite() {
+			$("#writeForm").submit();
+		}	
+	</script>
 </body>
 </html>
