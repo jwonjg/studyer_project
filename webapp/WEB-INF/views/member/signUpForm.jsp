@@ -27,12 +27,14 @@
 					<c:when test="${ empty authUser }">
 						<form onsubmit="return signUpFormCheck();"
 							class="form col-md-12 center-block" method="post"
-							action="${pageContext.request.contextPath}/member/signUp">
+							action="${pageContext.request.contextPath}/member/signUp"
+							enctype="multipart/form-data">
 					</c:when>
 					<c:otherwise>
 						<form onsubmit="return signUpFormCheck();"
 							class="form col-md-12 center-block" method="post"
-							action="${pageContext.request.contextPath}/member/userinfo">
+							action="${pageContext.request.contextPath}/member/userinfo"
+							enctype="multipart/form-data">
 					</c:otherwise>
 				</c:choose>
 				<span style="color: #E7746F">Email</span>
@@ -53,12 +55,30 @@
 						value="${sessionScope.authUser.name}"
 						class="form-control input-lg" placeholder="Name">
 				</div>
-				<span style="color: #E7746F">Photo</span>
-				<div class="form-group">
-					<input type="text" id="photo"
-						class="form-control input-lg" placeholder="Photo" name="photo"
-						value="${sessionScope.authUser.photo}">
+								
+					<div class="form-group" style="margin-bottom: 30px;">
+							<span style="color: #E7746F">Photo</span>
+							<div id="optionAddingDiv">
+								<div id="optionDiv" style="margin-bottom: 5px;"
+									class="input-group form-control">
+									<input type="hidden" name="isImageExist" value="false">
+									<!-- 사진 -->
+									<input id="uploadImageFile" name="file" type="file"
+										style="visibility: hidden; display: inline-block; width: 0px;">
+									<!-- 옵션이름 -->
+									<input id="uploadImageName" name="uploadImageName" style="border: none; padding: 0;"
+										type="text" class="form-control input-lg" placeholder="Photo">
+									<div class="input-group-btn">
+										<button id="uploadImageButton" type="button"
+											class="btn btn-default">append image</button>
+										<button name="optionDelete"
+											style="padding: 10px; background: none; visibility: hidden;"
+											type="button" class="btn btn-default">x</button>
+									</div>
+								</div>
+							</div>
 				</div>
+
 				<div class="form-group">
 					<c:choose>
 						<c:when test="${ empty authUser }">

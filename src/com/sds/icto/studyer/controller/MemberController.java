@@ -1,16 +1,24 @@
 package com.sds.icto.studyer.controller;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sds.icto.studyer.domain.MemberVo;
 import com.sds.icto.studyer.service.MemberService;
@@ -18,6 +26,8 @@ import com.sds.icto.studyer.service.MemberService;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
+	
+	private static final Log LOG = LogFactory.getLog( MemberController.class );
 
 	@Autowired
 	MemberService memberService;
@@ -41,10 +51,45 @@ public class MemberController {
 	
 
 	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
-	public String join(@ModelAttribute MemberVo vo) {
-		memberService.joinUser(vo);
+	public String join(@ModelAttribute MemberVo vo,  @RequestParam("file")MultipartFile file ) {
+		
+		vo.setPhoto(file.getOriginalFilename());
+		int seqno= memberService.joinUser(vo);
+	
+		//LOG.debug( " ######## deptNo : " + deptNo );
+
+        String fileOriginalName = file.getOriginalFilename();
+        String extName = fileOriginalName.substring( fileOriginalName.lastIndexOf(".") + 1, fileOriginalName.length() );
+        String fileName = file.getName();
+        Long size = file.getSize();
+        
+        
+        String saveFileName = "";
+        saveFileName = seqno+( "." + extName );
+
+        writeFile( file, "c:\\image", saveFileName );
+		
 		return "redirect:/index";
 	}
+	
+	private void writeFile( MultipartFile file, String path, String fileName ) {
+		FileOutputStream fos = null;
+		try {
+			byte fileData[] = file.getBytes();
+			fos = new FileOutputStream( path + "\\" + fileName );
+			fos.write(fileData);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (fos != null) {
+				try {
+					fos.close();
+				} catch (Exception e) {
+				}
+			}
+		}
+	}
+	
 
 	@RequestMapping(value = "/signIn")
 	@ResponseBody
@@ -79,5 +124,10 @@ public class MemberController {
 
 		return "redirect:/index";
 	}
+	
+	
+
+		
+	
 
 }

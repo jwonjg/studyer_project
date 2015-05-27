@@ -6,7 +6,7 @@
 <title>STUDYER</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <!-- CSS -->
-<link href="${pageContext.request.contextPath}assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <!-- Custom styles CSS -->
 <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
 <style type="text/css">
@@ -129,6 +129,7 @@
 	function signIn() {
 		var email = $("#signInUserEmail").val();
 		var password = $("#signInUserPwd").val();
+		
 		$.ajax({
 			url : "${pageContext.request.contextPath}/member/signIn",
 			type : "post",
@@ -152,6 +153,17 @@
 			dataType : "json"
 		});
 	}
+	
+	$("#uploadImageButton").on("click", function() {
+		$("#uploadImageFile").click();
+	});
+	$("#uploadImageFile").on(
+			"change",
+			function() {
+				
+				$("#uploadImageName").attr("value",
+						$(this).val().split('/').pop().split('\\').pop());
+			});
 	
 	
 	</script>
