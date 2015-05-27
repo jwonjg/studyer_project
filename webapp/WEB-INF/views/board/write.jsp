@@ -99,6 +99,8 @@
 	<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
 	<script type="text/javascript">
 		function submitWrite() {
+			var content = $("#editor").contents().find("#editor").html();
+			$("<input>").attr({name:"content", value:content, type:"hidden"}).appendTo("#writeForm");
 			$("#writeForm").submit();
 		}	
 		
@@ -113,6 +115,8 @@
 							$(this).val().split('/').pop().split('\\').pop());
 			});
 		
+		$(".pfblock-title").click(function(){
+		});
 	</script>
 </body>
 </html>

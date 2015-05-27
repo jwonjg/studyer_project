@@ -31,6 +31,7 @@ public class BoardController {
 			@RequestParam String place, @RequestParam String name,
 			@RequestParam("file") MultipartFile file) {
 
+		
 		vo.setFile_url(file.getOriginalFilename());
 
 		int seqno = boardService.boardInsert(vo, subject, teacher, place, name);
