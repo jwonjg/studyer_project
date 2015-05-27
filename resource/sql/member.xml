@@ -13,13 +13,32 @@
 	</select>
 			
 		
-	<insert id="insert" parameterClass="MemberVo">
+<!-- 	<insert id="insert" parameterClass="MemberVo">
 		<![CDATA[
 		insert
 		  into member
 		values ( member_no_seq.nextval, #email#, #password#, #name#, #photo#)
 		]]>
+	</insert> -->
+	
+	<insert id="insert" parameterClass="MemberVo">
+		
+		<selectKey keyProperty="no" resultClass="java.lang.Integer">
+			<![CDATA[
+			select member_no_seq.nextval as no from dual
+			]]>
+		</selectKey>
+   	
+		<![CDATA[
+		insert
+		  into member
+		values ( #no#, #email#, #password#, #name#, #photo# )
+		]]>
+		
 	</insert>
+	
+	
+	
 	
 	<update id="update" parameterClass="MemberVo">
 		<![CDATA[

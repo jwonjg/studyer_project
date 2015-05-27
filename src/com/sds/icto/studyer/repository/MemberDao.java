@@ -1,5 +1,6 @@
 package com.sds.icto.studyer.repository;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,14 +10,18 @@ import org.springframework.stereotype.Repository;
 
 import com.sds.icto.studyer.domain.MemberVo;
 
+
 @Repository
 public class MemberDao {
 
 	@Autowired
 	SqlMapClientTemplate sqlMapClientTemplate;
 
-	public void insert(MemberVo vo) {
-		sqlMapClientTemplate.insert("member.insert", vo);
+	public int insert(MemberVo vo) {
+		int no = -1;
+		no=(int) sqlMapClientTemplate.insert("member.insert",vo);
+		
+		return no;
 	}
 
 	public MemberVo getMember(String email, String password) {
@@ -46,6 +51,9 @@ public class MemberDao {
 			return true;
 		}
 	}
+	
+	
+
 		
 	
 }

@@ -122,6 +122,7 @@
 	function signIn() {
 		var email = $("#signInUserEmail").val();
 		var password = $("#signInUserPwd").val();
+		
 		$.ajax({
 			url : "${pageContext.request.contextPath}/member/signIn",
 			type : "post",
@@ -145,6 +146,17 @@
 			dataType : "json"
 		});
 	}
+	
+	$("#uploadImageButton").on("click", function() {
+		$("#uploadImageFile").click();
+	});
+	$("#uploadImageFile").on(
+			"change",
+			function() {
+				
+				$("#uploadImageName").attr("value",
+						$(this).val().split('/').pop().split('\\').pop());
+			});
 	
 	
 	</script>

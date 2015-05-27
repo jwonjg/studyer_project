@@ -12,8 +12,10 @@ public class MemberService {
 	@Autowired
 	MemberDao memberDao;
 	
-	public void joinUser(MemberVo vo){
-		memberDao.insert(vo);
+	public int joinUser(MemberVo vo){
+		//memberDao.insert(vo);
+		int newNo = memberDao.insert(vo);
+		return newNo;
 	}
 	
 	public MemberVo authUser(String email, String password){
