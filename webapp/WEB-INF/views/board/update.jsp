@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!doctype html>
 <html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -32,7 +33,7 @@
 			</div>
 			<div class="col-sm-8 col-sm-offset-2">
 				<form id="writeForm" method="post" action="${pageContext.request.contextPath}/board/update" enctype="multipart/form-data">
-					<input type="hidden" name="no" value="${ requestScope.board.no }">
+					<input type="hidden" name="no" value="${vo.no }">
 					<div style="padding: 0;" class="navbar-form">
 						<span style="color: #E7746F">Category</span> 
 						<div>
@@ -60,6 +61,8 @@
 								<input id="uploadFile" name="file" type="file"
 									style="visibility: hidden; display: inline-block; width: 0px;">
 								<!-- 사진이름 -->
+								<c:set var="originName" value="${vo.file_url }"/>
+								<input type="hidden" name="originExt" value="${fn:substringAfter(originName, '.')}"/>								
 								<input id="uploadFileName" readonly="readonly" name="optionTitle" style="border: none; padding: 0;"
 									type="text" class="form-control input-lg" placeholder="Attached File" value ="${ vo.file_url }" >
 								<div class="input-group-btn">

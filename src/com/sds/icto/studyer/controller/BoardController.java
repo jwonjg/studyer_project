@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import com.sds.icto.studyer.domain.*;
 import com.sds.icto.studyer.service.BoardService;
 
@@ -94,20 +95,19 @@ public class BoardController {
 		
 	
 	@RequestMapping(value={"/update"}, method=RequestMethod.POST)
-	public String modify(@ModelAttribute BoardVo vo, Model model, @RequestParam("file") MultipartFile file){
-		
-		/*System.out.println("Aaa");
+	public String modify(@ModelAttribute BoardVo vo, Model model, @RequestParam("file") MultipartFile file,
+			@RequestParam String originExt){
 		
 		String deleteFile = String.valueOf(vo.getNo());
-		//(vo.file_url)
+		
 		//String saveDir = "studyer_file";
 		//String saveFullDir = request.getServletContext().getRealPath(saveDir);
 		String saveFullDir = "c:\\studyer_file";
-		if(deleteFile != null && !deleteFile.equals("")) new File(saveFullDir+"/"+deleteFile).delete();
-		*/
+		if(deleteFile != null && !deleteFile.equals("")) new File(saveFullDir+"/"+deleteFile+"."+originExt).delete();
+		
 		vo.setFile_url(file.getOriginalFilename());
 
-		int seqno = boardService.boardUpdate(vo);
+		int seqno = vo.getNo();
 		BoardVo vo2 = boardService.boardDetail(vo.getNo());
 		model.addAttribute("vo2",vo2);
 		
@@ -122,6 +122,11 @@ public class BoardController {
 		saveFileName = seqno + ("." + extName);
 
 		writeFile(file, "c:\\studyer_file", saveFileName);
+		
+		BoardVo vo3 = boardService.boardDetail(vo.getNo());
+		model.addAttribute("vo",vo3);
+		ClassVo vo4 = boardService.boardClassDetail(vo.getNo());
+		model.addAttribute("c_vo",vo4);
 		
 		return "board/list";
 	}
