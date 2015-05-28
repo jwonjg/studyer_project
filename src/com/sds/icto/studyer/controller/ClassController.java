@@ -16,22 +16,22 @@ public class ClassController {
 	@Autowired
 	ClassService classService;
 
-	@RequestMapping("/subject")
+	@RequestMapping("/subjectName")
 	@ResponseBody
 	public List<String> getSubjectClassList() {
 		return classService.getSubjectClassList();
 	}
-	@RequestMapping("/teacher")
+	@RequestMapping("/teacherName")
 	@ResponseBody
 	public List<String> getTeacherClassList() {
 		return classService.getTeacherClassList();
 	}
-	@RequestMapping("/place")
+	@RequestMapping("/placeName")
 	@ResponseBody
 	public List<String> getPlaceClassList() {
 		return classService.getPlaceClassList();
 	}
-	@RequestMapping("/name")
+	@RequestMapping("/nameName")
 	@ResponseBody
 	public List<String> getNameClassList() {
 		return classService.getNameClassList();

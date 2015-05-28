@@ -87,6 +87,12 @@ public class BoardController {
 		return "board/detail";
 	}
 	
+	@RequestMapping(value="/search", method=RequestMethod.POST)
+	public String search(ClassVo vo, Model model) {
+		model.addAttribute("list", boardService.boardClassList(vo));
+		return "board/list";
+	}
+	
 
 
 }

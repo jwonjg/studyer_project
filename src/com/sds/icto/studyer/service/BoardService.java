@@ -1,5 +1,7 @@
 package com.sds.icto.studyer.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +46,14 @@ public class BoardService {
 	public ClassVo boardClassDetail(int no){
 		ClassVo c_vo = boardDao.detailClass(no);
 		return c_vo;
+	}
+
+	public List<BoardVo> boardClassList(ClassVo vo) {
+		int class_subject_no = classDao.subjectSearch(vo.getSubjectName());
+		int class_teacher_no = classDao.teacherSearch(vo.getTeacherName());
+		int class_place_no = classDao.placeSearch(vo.getPlaceName());
+		int class_name_no = classDao.nameSearch(vo.getNameName());
+		return boardDao.selectBoardList(class_subject_no, class_teacher_no, class_place_no, class_name_no);
 	}
 	
 }

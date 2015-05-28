@@ -57,6 +57,26 @@
 		]]>
 	</select>
 	
+	<select id="selectListByClass" resultClass="java.lang.String">	
+		<![CDATA[
+		select *
+		  from share_board where no > 0
+		]]>
+		<dynamic>
+			<isNotEqual property="subject" compareValue="0" prepend="and">
+			class_subject_no = #subject#
+			</isNotEqual>
+			<isNotEqual property="teacher" compareValue="0" prepend="and">
+			class_teacher_no = #teacher#
+			</isNotEqual>
+			<isNotEqual property="place" compareValue="0" prepend="and">
+			class_place_no = #place#
+			</isNotEqual>
+			<isNotEqual property="name" compareValue="0" prepend="and">
+			class_name_no = #name#
+			</isNotEqual>
+		</dynamic>
+	</select>
 </sqlMap>
 
 

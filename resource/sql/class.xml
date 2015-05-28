@@ -38,28 +38,28 @@
 
 	<select id="subjectFind" resultClass="java.lang.Integer" parameterClass="java.lang.String">
 		<![CDATA[
-		select no
+		select nvl(no, 0)
 		  from class_subject where name=#subject#
 		]]>
 	</select>
 	
 	<select id="teacherFind" resultClass="java.lang.Integer" parameterClass="java.lang.String">
 		<![CDATA[
-		select no
+		select nvl(no, 0)
 		  from class_teacher where name=#teacher#
 		]]>
 	</select>
 	
 	<select id="placeFind" resultClass="java.lang.Integer" parameterClass="java.lang.String">
 		<![CDATA[
-		select no
+		select nvl(no, 0)
 		  from class_place where name=#place#
 		]]>
 	</select>
 	
 	<select id="nameFind" resultClass="java.lang.Integer" parameterClass="java.lang.String">
 		<![CDATA[
-		select no
+		select nvl(no, 0)
 		  from class_name where name=#name#
 		]]>
 	</select>

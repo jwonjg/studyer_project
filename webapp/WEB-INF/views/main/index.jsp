@@ -31,15 +31,15 @@
 			<nav style="margin: 30px; min-height: 0px;"
 				class="navbar navbar-custom" role="navigation">
 				<div id="goSearchDiv" class="col-sm-12">
-					<form class="navbar-form" role="search"	action="search" method="post">
+					<form class="navbar-form" role="search"	action="board/search" method="post">
 						<input type="text" class="class form-control input-lg" placeholder="주제" 
-								name="subject" value="${requestScope.subject}">
+								name="subjectName" value="${requestScope.subject}">
 						<input type="text" class="class form-control input-lg" placeholder="강사" 
-								name="teacher" value="${requestScope.teacher}">
+								name="teacherName" value="${requestScope.teacher}">
 						<input type="text" class="class form-control input-lg" placeholder="기관" 
-								name="place" value="${requestScope.place}">
+								name="placeName" value="${requestScope.place}">
 						<input type="text" class="class form-control input-lg" placeholder="강의명" 
-							name="name" value="${requestScope.name}">
+							name="nameName" value="${requestScope.name}">
 						<button type="submit" class="btn input-lg searchBtn">search</button>
 					</form>
 				</div>
@@ -177,10 +177,10 @@
 	});
 	
 	$(function() {
-	    $( "input[name='subject']" ).autocomplete();
-	    $( "input[name='teacher']" ).autocomplete();
-	    $( "input[name='place']" ).autocomplete();
-	    $( "input[name='name']" ).autocomplete();
+	    $( "input[name='subjectName']" ).autocomplete();
+	    $( "input[name='teacherName']" ).autocomplete();
+	    $( "input[name='placeName']" ).autocomplete();
+	    $( "input[name='nameName']" ).autocomplete();
 	  });
 	</script>
 </body>
