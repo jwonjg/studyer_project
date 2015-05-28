@@ -30,12 +30,9 @@ public class BoardDao {
 		return no;
 	}
 	
-	public int update(BoardVo vo) {
+	public void update(BoardVo vo) {
 
-		int no = -1;
-		no = (int)sqlMapClientTemplate.update("board.update", vo);
-		
-		return no;
+		sqlMapClientTemplate.update("board.update", vo);
 	}
 	
 	

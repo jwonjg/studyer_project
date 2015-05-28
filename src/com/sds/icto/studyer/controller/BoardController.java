@@ -108,9 +108,7 @@ public class BoardController {
 		vo.setFile_url(file.getOriginalFilename());
 
 		int seqno = vo.getNo();
-		BoardVo vo2 = boardService.boardDetail(vo.getNo());
-		model.addAttribute("vo2",vo2);
-		
+				
 		String fileOriginalName = file.getOriginalFilename();
 		String extName = fileOriginalName.substring(
 				fileOriginalName.lastIndexOf(".") + 1,
@@ -123,12 +121,14 @@ public class BoardController {
 
 		writeFile(file, "c:\\studyer_file", saveFileName);
 		
+		boardService.boardUpdate(vo);
+		
 		BoardVo vo3 = boardService.boardDetail(vo.getNo());
 		model.addAttribute("vo",vo3);
 		ClassVo vo4 = boardService.boardClassDetail(vo.getNo());
 		model.addAttribute("c_vo",vo4);
 		
-		return "board/list";
+		return "board/detail";
 	}
 
 	@RequestMapping(value = {"/detail/{no}"}, method=RequestMethod.GET)

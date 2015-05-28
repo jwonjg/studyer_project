@@ -48,12 +48,9 @@ public class BoardService {
 		return newNo;
 	}
 	
-	public int boardUpdate(BoardVo vo){
-		
-		int newNo = boardDao.update(vo);
-		return newNo;
+	public void boardUpdate(BoardVo vo){
+		boardDao.update(vo);
 	}
-	
 	
 	public BoardVo boardDetail(int no){
 		BoardVo vo2 = boardDao.detail(no);
