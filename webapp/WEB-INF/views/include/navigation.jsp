@@ -5,9 +5,9 @@
 		<h3 id="goWriteH3" style="cursor: pointer" class="text-center">write</h3>
 	</div>
 	<div class="col-sm-9 col-md-4">
-		<h3 id="goMyVote" style="cursor: pointer" class="text-center">notes</h3>
+		<h3 id="goNotesH3" style="cursor: pointer" class="text-center">notes</h3>
 	</div>
 	<div class="col-sm-9 col-md-4">
-		<h3 id="goMyVote" style="cursor: pointer" class="text-center">my notes</h3>
+		<h3 id="goMyNotesH3" style="cursor: pointer" class="text-center">my notes</h3>
 	</div>
 </div>

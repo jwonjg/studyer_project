@@ -5,20 +5,9 @@
 <head>
 <title>STUDYER</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<!-- CSS -->
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<!-- Custom styles CSS -->
 <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
-<style type="text/css">
-	section {
-		min-height: 70vh;
-		padding-top: 30vh;
-	}
-	#goSearchDiv {
-		text-align: center;
-	}
-</style>
+<link href="${pageContext.request.contextPath}/assets/css/custom.css" rel="stylesheet" media="screen">
 </head>
 <body>
 	<c:import url="/WEB-INF/views/member/signInForm.jsp"/>

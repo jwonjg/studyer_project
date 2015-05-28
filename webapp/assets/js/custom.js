@@ -1,5 +1,11 @@
 	$("#goWriteH3").click(function() {
-		location.href = "${pageContext.request.contextPath}/board/write";
+		location.href = "/studyer_project/board/write";
+	});
+	$("#goNotesH3").click(function() {
+		location.href = "/studyer_project/board/list";
+	});
+	$("#goMyNotesH3").click(function() {
+		location.href = "/studyer_project/board/mylist";
 	});
 	
 	$("#signUpUserEmail").on(
@@ -11,7 +17,7 @@
 					return
 				}
 				$.ajax({
-					url : "${pageContext.request.contextPath}/member/checkEmail",
+					url : "/studyer_project/member/checkEmail",
 					type : "post",
 					data : {
 						"email" : email
@@ -55,7 +61,7 @@
 		var password = $("#signInUserPwd").val();
 		
 		$.ajax({
-			url : "${pageContext.request.contextPath}/member/signIn",
+			url : "/studyer_project/member/signIn",
 			type : "post",
 			data : {
 				"email" : email,
@@ -92,7 +98,7 @@
 	$(".class").focus(function(){
 		var categoryName = $(this).attr("name");
 		$.ajax({
-			url : "${pageContext.request.contextPath}/class/"+categoryName,
+			url : "/studyer_project/class/"+categoryName,
 			type : "post",
 			success : function( response ){
 				$("input[name='"+categoryName+"']").autocomplete("option", "source", response);
@@ -111,3 +117,32 @@
 	    $( "input[name='placeName']" ).autocomplete();
 	    $( "input[name='nameName']" ).autocomplete();
 	  });
+	
+	function submitWrite() {
+		var content = $("#editor").contents().find("#editor").html();
+		$("<input>").attr({name:"content", value:content, type:"hidden"}).appendTo("#writeForm");
+		$("#writeForm").submit();
+	}	
+	
+	$("#uploadFileButton").on("click", function() {
+		$("#uploadFile").click();
+	});
+	
+	$("#uploadFile").on(
+			"change",
+			function() {
+				
+				$("#uploadFileName").attr("value",
+						$(this).val().split('/').pop().split('\\').pop());
+		});
+
+	function viewContent() {
+		var $content = $("#invisibleContent");
+		$("#editor").contents().find("#editor").html($content.html());
+	};
+	
+	function submitUpdate() {
+		var content = $("#editor").contents().find("#editor").html();
+		$("<input>").attr({name:"content", value:content, type:"hidden"}).appendTo("#writeForm");
+		$("#writeForm").submit();
+	}	

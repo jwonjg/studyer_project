@@ -1,0 +1,31 @@
+section {
+	min-height: 70vh;
+	padding-top: 30vh;
+}
+#goSearchDiv {
+	text-align: center;
+}
+#editor {
+	width: 100%;
+	height: 350px;
+	border: none;
+}
+#inputTable thead tr:last-child td {
+	border-top: none;
+	border-bottom: 1px solid #666;
+	padding-bottom: 20px;
+}
+#inputTable tbody tr:first-child td {
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+#inputTable tbody td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+h3, h5, h6 {
+	text-transform: none;
+}
+#inputTable a {
+	cursor: pointer;
+}

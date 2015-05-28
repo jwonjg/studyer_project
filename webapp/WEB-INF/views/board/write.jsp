@@ -5,23 +5,22 @@
 <head>
 <title>STUDYER</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<!-- CSS -->
 <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<!-- Custom styles CSS -->
 <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
-<style type="text/css">
-	#editor {
-		width: 100%;
-		height: 350px;
-		border: none;
-	}
-</style>
+<link href="${pageContext.request.contextPath}/assets/css/custom.css" rel="stylesheet" media="screen">
 </head>
 <body>
+	<c:import url="/WEB-INF/views/member/signInForm.jsp"/>
+	<c:import url="/WEB-INF/views/member/signUpForm.jsp"/>
+	
 	<header class="header"> 
 		<c:import url="/WEB-INF/views/include/header.jsp"/>
 	</header>
 
+	<nav>
+		<c:import url="/WEB-INF/views/include/navigation.jsp"/>
+	</nav>
+	
 	<section id="contact" class="pfblock">
 		<div class="container">
 			<div class="col-sm-8 col-sm-offset-2">
@@ -89,33 +88,8 @@
 
 	<!-- Javascript files -->
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/jquery.parallax-1.1.3.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/jquery.sticky.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/wow.min.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/jquery.easypiechart.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/waypoints.min.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/jquery.cbpQTRotator.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
-	<script type="text/javascript">
-		function submitWrite() {
-			var content = $("#editor").contents().find("#editor").html();
-			$("<input>").attr({name:"content", value:content, type:"hidden"}).appendTo("#writeForm");
-			$("#writeForm").submit();
-		}	
-		
-		$("#uploadFileButton").on("click", function() {
-			$("#uploadFile").click();
-		});
-		
-		$("#uploadFile").on(
-				"change",
-				function() {
-					
-					$("#uploadFileName").attr("value",
-							$(this).val().split('/').pop().split('\\').pop());
-			});
-		
-	</script>
 </body>
 </html>
