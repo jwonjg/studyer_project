@@ -64,20 +64,22 @@ h3, h5, h6 {
 					</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3><a href="${pageContext.request.contextPath}/board/detail">제목 예시</a></h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
+						<c:forEach var="board" items="${ requestScope.list }">
+							<tr>
+								<td><h6>${ pageScope.board.class_subject_no }</h6></td>
+								<td><h6>${ pageScope.board.class_teacher_no }</h6></td>
+								<td><h6>${ pageScope.board.class_place_no }</h6></td>
+								<td><h6>${ pageScope.board.class_name_no }</h6></td>
+							</tr>
+							<tr>
+								<td style="border-top: none;" colspan="3">
+									<h3><a href="${pageContext.request.contextPath}/board/detail/${ pageScope.board.no }">${ pageScope.board.title }</a></h3>
+								</td>
+								<td style="border-top: none;">
+									<h3>${ pageScope.board.reg_date }</h3>
+								</td>
+							</tr>
+						</c:forEach>
 						<tr>
 							<td><h6>주제aa</h6></td>
 							<td><h6>강사aa</h6></td>

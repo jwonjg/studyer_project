@@ -14,7 +14,7 @@ public class ClassDao {
 
 	public int subjectWrite(String subject) {
 
-		int class_subject_no = (int)sqlMapClientTemplate.queryForObject("class.subjectFind", subject);
+		int class_subject_no = subjectSearch(subject);
 		if (class_subject_no == 0) {
 			sqlMapClientTemplate.insert("class.subjectInsert", subject);
 			class_subject_no = (int)sqlMapClientTemplate.queryForObject("class.subjectFind", subject) ;
@@ -25,7 +25,7 @@ public class ClassDao {
 
 	public int teacherWrite(String teacher) {
 
-		int class_teacher_no = (int)sqlMapClientTemplate.queryForObject("class.teacherFind", teacher);
+		int class_teacher_no = teacherSearch(teacher);
 		if (class_teacher_no == 0) {
 			sqlMapClientTemplate.insert("class.teacherInsert", teacher);
 			class_teacher_no = (int)sqlMapClientTemplate.queryForObject("class.teacherFind", teacher) ;
@@ -35,7 +35,7 @@ public class ClassDao {
 
 	public int placeWrite(String place) {
 
-		int class_place_no = (int)sqlMapClientTemplate.queryForObject("class.placeFind", place);
+		int class_place_no = placeSearch(place);
 		if (class_place_no == 0) {
 			sqlMapClientTemplate.insert("class.placeInsert", place);
 			class_place_no = (int)sqlMapClientTemplate.queryForObject("class.placeFind", place) ;
@@ -45,7 +45,7 @@ public class ClassDao {
 
 	public int nameWrite(String name) {
 
-		int class_name_no = (int)sqlMapClientTemplate.queryForObject("class.nameFind", name);
+		int class_name_no = nameSearch(name);
 		if (class_name_no == 0) {
 			sqlMapClientTemplate.insert("class.nameInsert", name);
 			class_name_no = (int)sqlMapClientTemplate.queryForObject("class.nameFind", name) ;
@@ -71,26 +71,26 @@ public class ClassDao {
 	}
 
 	public int subjectSearch(String subjectName) {
-		if(subjectName == null) return 0;
-		return (int)sqlMapClientTemplate.queryForObject("class.subjectFind", subjectName);
+		Object obj = sqlMapClientTemplate.queryForObject("class.subjectFind", subjectName);
+		if(obj == null) return 0;
+		return (int)obj;
 	}
 
 	public int teacherSearch(String teacherName) {
-		System.out.println(teacherName);
-		System.out.println(sqlMapClientTemplate.queryForObject("class.teacherFind", teacherName));
-		if(teacherName == null) return 0;
-		return (int)sqlMapClientTemplate.queryForObject("class.teacherFind", teacherName);
+		Object obj = sqlMapClientTemplate.queryForObject("class.teacherFind", teacherName);
+		if(obj == null) return 0;
+		return (int)obj;
 	}
 
 	public int placeSearch(String placeName) {
-		if(placeName == null) return 0;
-		return (int)sqlMapClientTemplate.queryForObject("class.placeFind", placeName);
+		Object obj = sqlMapClientTemplate.queryForObject("class.placeFind", placeName);
+		if(obj == null) return 0;
+		return (int)obj;
 	}
 
 	public int nameSearch(String nameName) {
-		if(nameName == null) return 0;
-		return (int)sqlMapClientTemplate.queryForObject("class.nameFind", nameName);
+		Object obj = sqlMapClientTemplate.queryForObject("class.nameFind", nameName);
+		if(obj == null) return 0;
+		return (int)obj;
 	}
-
-	
 }
