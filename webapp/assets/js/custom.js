@@ -5,8 +5,15 @@
 		location.href = "/studyer_project/board/list";
 	});
 	$("#goMyNotesH3").click(function() {
-		location.href = "/studyer_project/board/mylist";
+		location.href = "/studyer_project/board/list";
 	});
+	$("#goSignIn").click(function() {
+		$("#signIn").click();
+	});
+	$("#goSignIn2").click(function() {
+		$("#signIn").click();
+	});
+	
 	
 	$("#signUpUserEmail").on(
 			"blur",

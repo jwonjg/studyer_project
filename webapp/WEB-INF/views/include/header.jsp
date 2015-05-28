@@ -10,7 +10,7 @@
 			<c:choose>
 				<c:when test="${ empty authUser }">
 					<li><a style="cursor: pointer" data-toggle="modal" data-target="#signUpModal">Sign Up</a></li>
-					<li><a style="cursor: pointer" data-toggle="modal" data-target="#loginModal">Sign In</a></li>
+					<li><a id="signIn" style="cursor: pointer" data-toggle="modal" data-target="#loginModal">Sign In</a></li>
 				</c:when>
 				<c:otherwise>
 					<li><a style="cursor: pointer" data-toggle="modal" data-target="#signUpModal" id="showSignModal">welcome ${ authUser.name }</a></li>
