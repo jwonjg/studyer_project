@@ -1,6 +1,5 @@
 package com.sds.icto.studyer.repository;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 
+
+
 import com.sds.icto.studyer.domain.*;
 import com.sds.icto.studyer.service.BoardService;
 
@@ -45,13 +47,13 @@ public class BoardController {
 			@RequestParam String subject, @RequestParam String teacher,
 			@RequestParam String place, @RequestParam String name,
 			@RequestParam("file") MultipartFile file,
-			HttpSession session) {
+			String member_name) {
 		
 		vo.setFile_url(file.getOriginalFilename());
 
 		int seqno = boardService.boardInsert(vo, subject, teacher, place, name);
 		
-		boardService.editInsert(new EditVo(seqno, 0, vo.getContent().length(), vo.getContent(), ((MemberVo)session.getAttribute("authUser")).getName()));
+		boardService.editInsert(new EditVo(seqno, 0, vo.getContent().length(), vo.getContent(), member_name));
 		
 		String fileOriginalName = file.getOriginalFilename();
 		String extName = fileOriginalName.substring(
@@ -99,7 +101,7 @@ public class BoardController {
 		
 	@RequestMapping(value={"/update"}, method=RequestMethod.POST)
 	public String modify(@ModelAttribute BoardVo vo, Model model, @RequestParam("file") MultipartFile file,
-			String originExt, String before_content){
+			String originExt, String before_content, String member_name){
 		
 		String deleteFile = String.valueOf(vo.getNo());
 		
@@ -109,7 +111,6 @@ public class BoardController {
 		if(deleteFile != null && !deleteFile.equals("")) new File(saveFullDir+"/"+deleteFile+"."+originExt).delete();
 		
 		vo.setFile_url(file.getOriginalFilename());
-
 		int seqno = vo.getNo();
 				
 		String fileOriginalName = file.getOriginalFilename();
@@ -131,6 +132,23 @@ public class BoardController {
 		ClassVo vo4 = boardService.boardClassDetail(vo.getNo());
 		model.addAttribute("c_vo",vo4);
 
+//		String[] update = vo.getContent().split("\\s+\n");
+//		String[] before = before_content.split("\\s+\n");
+		
+//		int first = 0;
+//		int last = before_content.length();
+//		if(vo.getContent().length()>=before_content.length()){
+//			first = vo.getContent().compareTo(before_content);
+//			last = vo.getContent().length() - new StringBuilder(vo.getContent()).reverse().toString().compareTo(new StringBuilder(before_content).reverse().toString()); 
+//		}else{
+//			first = before_content.compareTo(vo.getContent());
+//			last = before_content.length() - new StringBuilder(before_content).reverse().toString().compareTo(new StringBuilder(vo.getContent()).reverse().toString()); 
+//		}
+//		System.out.println(first);
+//		System.out.println(last);
+//		System.out.println(member_name);
+//		boardService.editInsert(new EditVo(seqno, first, last, vo.getContent().substring(first, last), member_name));
+		
 		return "redirect:/board/detail/"+seqno;
 	}
 
@@ -147,10 +165,9 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value={"/like/{no}"}, method=RequestMethod.GET)
-	public String view(@PathVariable int no, @RequestParam int good){
-		
+	public String like(@PathVariable int no, @RequestParam int good){
 		boardService.boardLike(no);
-		return "board/detail";
+		return "redirect:/board/detail/"+no;
 	}
 	
 	@RequestMapping(value="/search", method=RequestMethod.POST)

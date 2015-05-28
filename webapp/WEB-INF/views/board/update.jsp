@@ -31,6 +31,7 @@
 			</div>
 			<div class="col-sm-8 col-sm-offset-2">
 				<form id="writeForm" method="post" action="${pageContext.request.contextPath}/board/update" enctype="multipart/form-data">
+					<input type="hidden" name="member_name" value="${ sessionScope.authUser.name }">
 					<input type="hidden" name="no" value="${vo.no }">
 					<div style="padding: 0;" class="navbar-form">
 						<span style="color: #E7746F">Category</span> 
