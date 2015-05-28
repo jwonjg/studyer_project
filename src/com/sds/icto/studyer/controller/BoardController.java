@@ -146,6 +146,13 @@ public class BoardController {
 		return "board/detail";
 	}
 	
+	@RequestMapping(value={"/like/{no}"}, method=RequestMethod.GET)
+	public String view(@PathVariable int no, @RequestParam int good){
+		
+		boardService.boardLike(no);
+		return "board/detail";
+	}
+	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
 	public String search(ClassVo vo, Model model) {
 		model.addAttribute("list", boardService.boardClassList(vo));
@@ -158,6 +165,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 
+	
 
 
 }

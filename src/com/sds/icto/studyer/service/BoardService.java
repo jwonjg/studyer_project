@@ -78,4 +78,7 @@ public class BoardService {
 		boardDao.delete(no);
 	}
 	
+	public void boardLike(int no){
+		boardDao.like(no);
+	}
 }

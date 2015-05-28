@@ -79,4 +79,8 @@ public class BoardDao {
 		sqlMapClientTemplate.delete("board.delete", no);
 	}
 
+	public void like(int no) {
+		
+		sqlMapClientTemplate.update("board.like", no);
+	}
 }
