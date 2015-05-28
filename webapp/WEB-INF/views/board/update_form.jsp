@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
 <head>
-<title>mysite</title>
+<title>studyer_project</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link href="${pageContext.request.contextPath}/assets/css/guestbook.css" rel="stylesheet" type="text/css">
 </head>
@@ -24,8 +24,8 @@
 						<tr>
 							<td>첨부파일</td>
 							<td>
-							${ requestScope.board.fileName }<br>
-							<input type="hidden" name="prevFileName" value="${ requestScope.board.fileName }">
+							${ requestScope.board.file_url }<br>
+							<input type="hidden" name="prevFileName" value="${ requestScope.board.file_url }">
 							<input type="file" name="file"> 
 							</td>
 						</tr>
@@ -47,7 +47,7 @@
 			</c:import>
 		</div>
 		<div id="footer">
-			<p>(c)opyright 2014 </p>
+			<p>(c)opyright 2015 </p>
 		</div>
 	</div>
 </body>

@@ -89,6 +89,26 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@RequestMapping(value={"/update/{no}"}, method=RequestMethod.GET)
+	public String modifyForm(@PathVariable int no, Model model){
+		
+		model.addAttribute("no",no);
+		BoardVo vo = boardService.boardDetail(no);
+		model.addAttribute("vo",vo);
+		ClassVo vo2 = boardService.boardClassDetail(no);
+		model.addAttribute("c_vo",vo2);
+		return "board/update";
+	}
+	
+/*	@RequestMapping(value={"/update"}, method=RequestMethod.POST)
+	public String modify(@ModelAttribute BoardVo vo, Model model){
+		
+		boardService.boardUpdate(vo);
+		BoardVo vo2 = boardService.boardDetail(vo.getNo());
+		model.addAttribute("vo2",vo2);
+		return "board/list";
+	}*/
+
 
 
 }
