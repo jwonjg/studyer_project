@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!doctype html>
 <html>
 <head>
@@ -36,7 +37,8 @@
 					<div class="form-group" >
 						<span style="color: #E7746F">Attachment</span>
 						<div>
-							<a href="/document/${vo2.no}.jpg/">${vo2.file_url }</a>
+							<c:set var="originName" value="${vo2.file_url }"/>
+							<a href="/studyer_project/file/${vo2.no}.${fn:substringAfter(originName, '.')}" download>${vo2.file_url }</a>
 						</div>
 					</div>
 					<div class="form-group">

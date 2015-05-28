@@ -14,6 +14,10 @@
 
 	<!-- DefaultAnnotationHandlerMapping 자동 등록 -->
 	<mvc:annotation-driven />
+	
+	<!--mvc:resources mapping="/image/**" location="/assets/images/" /-->
+	<mvc:resources mapping="/file/**" location="file:C:\\studyer_file/" />
+	<mvc:resources mapping="/image/**" location="file:C:\\studyer_image/" />
 
 	<!-- 기본 뷰 리졸버 -->
 	<bean id="viewResolver"
