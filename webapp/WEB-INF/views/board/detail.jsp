@@ -21,7 +21,7 @@
 		<div class="container">
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="pfblock-header">
-					<h2 class="pfblock-title">Title</h2>
+					<h2 class="pfblock-title">${vo2.title }</h2>
 					<div class="pfblock-line"></div>
 				</div>
 			</div>
