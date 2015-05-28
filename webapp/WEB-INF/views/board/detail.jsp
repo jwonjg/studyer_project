@@ -55,18 +55,24 @@
 					</div>
 			</div>
 			<div class="row">
+			<c:if test="${ authUser.no!=null}">
 				<div class="col-md-12 col-lg-12 calltoaction-btn" style="margin: 20px 0;">
+				
 					<button
 						onclick="location.href='/studyer_project/board/like/${vo2.no}'"
 						style="background: rgba(17, 17, 17, 0.8); color: white; border: 1px solid rgba(17, 17, 17, 0.8);"
 						class="btn btn-lg btn-default" >like</button>
+				
 					<c:if test="${ sessionScope.currentUserId eq requestScope.voteForm.vote.userId }">
 						<a href="/studyer_project/board/delete/${vo2.no }" style="background: #E7746F; color: white;" class="btn btn-lg btn-default">delete</a>
 					</c:if>
+				
 					<a href="/studyer_project/board/update/${vo2.no }" title="vote" id="resultToggleA"
 						style="border-color: #E7746F; border-width: 1px; border-style: solid; color: #E7746F;"
 						class="btn btn-lg">edit this note</a>
+				
 				</div>
+				</c:if>
 			</div>
 		</div>
 	</section>
