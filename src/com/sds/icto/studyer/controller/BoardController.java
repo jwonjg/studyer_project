@@ -48,7 +48,7 @@ public class BoardController {
 		String saveFileName = "";
 		saveFileName = seqno + ("." + extName);
 
-		writeFile(file, "c:\\document", saveFileName);
+		writeFile(file, "c:\\studyer_file", saveFileName);
 
 		return "board/list";
 	}
@@ -78,10 +78,6 @@ public class BoardController {
 		model.addAttribute("vo2",vo2);
 		
 		ClassVo vo = boardService.boardClassDetail(no);
-		System.out.println(vo.getSubjectName());
-		System.out.println(vo.getTeacherName());
-		System.out.println(vo.getPlaceName());
-		System.out.println(vo.getNameName());
 		model.addAttribute("c_vo",vo);
 		
 		return "board/detail";

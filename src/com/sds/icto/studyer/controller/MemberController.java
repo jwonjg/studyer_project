@@ -67,7 +67,7 @@ public class MemberController {
         String saveFileName = "";
         saveFileName = seqno+( "." + extName );
 
-        writeFile( file, "c:\\image", saveFileName );
+        writeFile( file, "c:\\studyer_image", saveFileName );
 		
 		return "redirect:/index";
 	}
