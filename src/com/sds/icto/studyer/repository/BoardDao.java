@@ -75,6 +75,8 @@ public class BoardDao {
 		return sqlMapClientTemplate.queryForList("board.selectListByClass", map);
 	}
 	
-	
+	public void delete(int no) {
+		sqlMapClientTemplate.delete("board.delete", no);
+	}
 
 }

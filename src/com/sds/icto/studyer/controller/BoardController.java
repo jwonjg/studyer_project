@@ -149,7 +149,11 @@ public class BoardController {
 		return "board/list";
 	}
 	
-	
+	@RequestMapping(value={"/delete/{no}"}, method=RequestMethod.GET)
+	public String delete(@PathVariable int no){
+		boardService.boardDelete(no);
+		return "redirect:/board/search";
+	}
 
 
 

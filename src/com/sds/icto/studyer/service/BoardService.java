@@ -74,5 +74,8 @@ public class BoardService {
 		editDao.insert(editVo);
 	}
 	
+	public void boardDelete(int no){
+		boardDao.delete(no);
+	}
 	
 }
