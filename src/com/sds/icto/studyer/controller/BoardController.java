@@ -34,6 +34,11 @@ public class BoardController {
 	public String index() {
 		return "board/write";
 	}
+	@RequestMapping("/list")
+	public String list(Model model) {
+		model.addAttribute("list", boardService.boardClassList(new ClassVo()));
+		return "board/list";
+	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String write(@ModelAttribute BoardVo vo,
@@ -41,7 +46,6 @@ public class BoardController {
 			@RequestParam String place, @RequestParam String name,
 			@RequestParam("file") MultipartFile file,
 			HttpSession session) {
-
 		
 		vo.setFile_url(file.getOriginalFilename());
 
@@ -61,7 +65,7 @@ public class BoardController {
 
 		writeFile(file, "c:\\studyer_file", saveFileName);
 
-		return "board/list";
+		return "redirect:/board/detail/"+seqno;
 	}
 
 	private void writeFile(MultipartFile file, String path, String fileName) {
@@ -93,10 +97,9 @@ public class BoardController {
 		return "board/update";
 	}
 		
-	
 	@RequestMapping(value={"/update"}, method=RequestMethod.POST)
 	public String modify(@ModelAttribute BoardVo vo, Model model, @RequestParam("file") MultipartFile file,
-			@RequestParam String originExt){
+			String originExt, String before_content){
 		
 		String deleteFile = String.valueOf(vo.getNo());
 		
@@ -127,8 +130,8 @@ public class BoardController {
 		model.addAttribute("vo",vo3);
 		ClassVo vo4 = boardService.boardClassDetail(vo.getNo());
 		model.addAttribute("c_vo",vo4);
-		
-		return "board/detail";
+
+		return "redirect:/board/detail/"+seqno;
 	}
 
 	@RequestMapping(value = {"/detail/{no}"}, method=RequestMethod.GET)
@@ -152,7 +155,7 @@ public class BoardController {
 	@RequestMapping(value={"/delete/{no}"}, method=RequestMethod.GET)
 	public String delete(@PathVariable int no){
 		boardService.boardDelete(no);
-		return "redirect:/board/search";
+		return "redirect:/board/list";
 	}
 
 

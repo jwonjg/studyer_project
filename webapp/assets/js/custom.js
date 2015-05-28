@@ -144,5 +144,6 @@
 	function submitUpdate() {
 		var content = $("#editor").contents().find("#editor").html();
 		$("<input>").attr({name:"content", value:content, type:"hidden"}).appendTo("#writeForm");
+		$("<input>").attr({name:"before_content", value:$("#invisibleContent").html(), type:"hidden"}).appendTo("#writeForm");
 		$("#writeForm").submit();
 	}	
