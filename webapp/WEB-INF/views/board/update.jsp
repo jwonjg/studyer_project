@@ -36,14 +36,18 @@
 					<div style="padding: 0;" class="navbar-form">
 						<span style="color: #E7746F">Category</span> 
 						<div>
-						<input type="text" class="form-control input-lg" placeholder="주제" 
+						<h4>
+							${c_vo.subjectName }>${c_vo.teacherName }>${c_vo.placeName }>${c_vo.nameName }
+						</h4>
+						<%-- <input type="text" class="form-control input-lg" placeholder="주제" 
 								name="subject" value="${c_vo.subjectName}">
 						<input type="text" class="form-control input-lg" placeholder="강사" 
 								name="teacher" value="${c_vo.teacherName}">
 						<input type="text" class="form-control input-lg" placeholder="기관" 
 								name="place" value="${c_vo.placeName}">
 						<input type="text" class="form-control input-lg" placeholder="강의명" 
-							name="name" value="${c_vo.nameName}">
+							name="name" value="${c_vo.nameName}"> --%>
+							
 						</div>
 					</div>
 					<div class="form-group">

@@ -179,7 +179,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value={"/like/{no}"}, method=RequestMethod.GET)
-	public String like(@PathVariable int no, @RequestParam int good){
+	public String like(@PathVariable int no){
 		boardService.boardLike(no);
 		return "redirect:/board/detail/"+no;
 	}
