@@ -11,6 +11,6 @@
 	<sqlMap resource="sql/member.xml" />
 	<sqlMap resource="sql/board.xml" />
 	<sqlMap resource="sql/class.xml" />
-	
+	<sqlMap resource="sql/edit.xml" />
 	
 </sqlMapConfig>

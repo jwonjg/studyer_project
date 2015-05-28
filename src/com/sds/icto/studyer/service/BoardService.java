@@ -13,6 +13,7 @@ import com.sds.icto.studyer.domain.ClassVo;
 import com.sds.icto.studyer.domain.EditVo;
 import com.sds.icto.studyer.repository.BoardDao;
 import com.sds.icto.studyer.repository.ClassDao;
+import com.sds.icto.studyer.repository.EditDao;
 
 @Service
 public class BoardService {
@@ -24,6 +25,9 @@ public class BoardService {
 
 	@Autowired
 	ClassDao classDao;
+	
+	@Autowired
+	EditDao editDao;
 	
 	public int boardInsert(BoardVo vo, String subject, String teacher, String place, String name){
 		
@@ -70,7 +74,7 @@ public class BoardService {
 	}
 
 	public void editInsert(EditVo editVo) {
-		
+		editDao.insert(editVo);
 	}
 	
 	
