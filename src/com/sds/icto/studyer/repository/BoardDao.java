@@ -25,6 +25,15 @@ public class BoardDao {
 		return no;
 	}
 	
+	public int update(BoardVo vo) {
+
+		int no = -1;
+		no = (int)sqlMapClientTemplate.update("board.update", vo);
+		
+		return no;
+	}
+	
+	
 	public BoardVo detail(int no) {
 		
 		BoardVo vo2 = (BoardVo) sqlMapClientTemplate.queryForObject("board.detail", no);

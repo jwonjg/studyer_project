@@ -1,5 +1,6 @@
 package com.sds.icto.studyer.controller;
 
+import java.io.File;
 import java.io.FileOutputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,51 @@ public class BoardController {
 			}
 		}
 	}
+	
+	@RequestMapping(value={"/update/{no}"}, method=RequestMethod.GET)
+	public String modifyForm(@PathVariable int no, Model model){
+		
+		model.addAttribute("no",no);
+		BoardVo vo = boardService.boardDetail(no);
+		model.addAttribute("vo",vo);
+		ClassVo vo2 = boardService.boardClassDetail(no);
+		model.addAttribute("c_vo",vo2);
+		return "board/update";
+	}
+		
+	
+	@RequestMapping(value={"/update"}, method=RequestMethod.POST)
+	public String modify(@ModelAttribute BoardVo vo, Model model, @RequestParam("file") MultipartFile file){
+		
+		/*System.out.println("Aaa");
+		
+		String deleteFile = String.valueOf(vo.getNo());
+		//(vo.file_url)
+		//String saveDir = "studyer_file";
+		//String saveFullDir = request.getServletContext().getRealPath(saveDir);
+		String saveFullDir = "c:\\studyer_file";
+		if(deleteFile != null && !deleteFile.equals("")) new File(saveFullDir+"/"+deleteFile).delete();
+		*/
+		vo.setFile_url(file.getOriginalFilename());
+
+		int seqno = boardService.boardUpdate(vo);
+		BoardVo vo2 = boardService.boardDetail(vo.getNo());
+		model.addAttribute("vo2",vo2);
+		
+		String fileOriginalName = file.getOriginalFilename();
+		String extName = fileOriginalName.substring(
+				fileOriginalName.lastIndexOf(".") + 1,
+				fileOriginalName.length());
+		String fileName = file.getName();
+		Long size = file.getSize();
+
+		String saveFileName = "";
+		saveFileName = seqno + ("." + extName);
+
+		writeFile(file, "c:\\studyer_file", saveFileName);
+		
+		return "board/list";
+	}
 
 	@RequestMapping(value = {"/detail/{no}"}, method=RequestMethod.GET)
 	public String detail(@PathVariable int no, Model model) {
@@ -89,25 +135,7 @@ public class BoardController {
 		return "board/list";
 	}
 	
-	@RequestMapping(value={"/update/{no}"}, method=RequestMethod.GET)
-	public String modifyForm(@PathVariable int no, Model model){
-		
-		model.addAttribute("no",no);
-		BoardVo vo = boardService.boardDetail(no);
-		model.addAttribute("vo",vo);
-		ClassVo vo2 = boardService.boardClassDetail(no);
-		model.addAttribute("c_vo",vo2);
-		return "board/update";
-	}
 	
-/*	@RequestMapping(value={"/update"}, method=RequestMethod.POST)
-	public String modify(@ModelAttribute BoardVo vo, Model model){
-		
-		boardService.boardUpdate(vo);
-		BoardVo vo2 = boardService.boardDetail(vo.getNo());
-		model.addAttribute("vo2",vo2);
-		return "board/list";
-	}*/
 
 
 
