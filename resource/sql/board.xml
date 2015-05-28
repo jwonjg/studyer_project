@@ -94,6 +94,14 @@
 		]]>
 	</delete>
 	
+	<update id="like">
+		<![CDATA[
+		update share_board
+		 set good = (select good+1 from share_board where no=#no#) 
+		 where no=#no# 	
+		]]>
+	</update>
+	
 </sqlMap>
 
 

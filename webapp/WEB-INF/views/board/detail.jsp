@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-md-12 col-lg-12 calltoaction-btn" style="margin: 20px 0;">
 					<button
-						onclick="location.href='resultForm.vote?command=resultForm'"
+						onclick="location.href='/studyer_project/board/like/${vo2.no}'"
 						style="background: rgba(17, 17, 17, 0.8); color: white; border: 1px solid rgba(17, 17, 17, 0.8);"
 						class="btn btn-lg btn-default" >like</button>
 					<c:if test="${ sessionScope.currentUserId eq requestScope.voteForm.vote.userId }">
