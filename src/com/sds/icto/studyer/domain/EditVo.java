@@ -10,6 +10,20 @@ public class EditVo {
 	private int bad;
 	private String member_name;
 	private String reg_date;
+	
+	public EditVo() {}
+	
+	public EditVo(int share_board_no, int start_index, int end_index, String before_content, String member_name) {
+		super();
+		this.share_board_no = share_board_no;
+		this.start_index = start_index;
+		this.end_index = end_index;
+		this.before_content = before_content;
+		this.member_name = member_name;
+	}
+
+
+
 	public int getNo() {
 		return no;
 	}

@@ -3,6 +3,10 @@ package com.sds.icto.studyer.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +24,8 @@ import com.sds.icto.studyer.service.BoardService;
 @RequestMapping("/board")
 public class BoardController {
 
+	private static final Log LOG = LogFactory.getLog( MemberController.class );
+	
 	@Autowired
 	BoardService boardService;
 
@@ -32,13 +38,16 @@ public class BoardController {
 	public String write(@ModelAttribute BoardVo vo,
 			@RequestParam String subject, @RequestParam String teacher,
 			@RequestParam String place, @RequestParam String name,
-			@RequestParam("file") MultipartFile file) {
+			@RequestParam("file") MultipartFile file,
+			HttpSession session) {
 
 		
 		vo.setFile_url(file.getOriginalFilename());
 
 		int seqno = boardService.boardInsert(vo, subject, teacher, place, name);
-
+		
+		boardService.editInsert(new EditVo(seqno, 0, vo.getContent().length(), vo.getContent(), ((MemberVo)session.getAttribute("authUser")).getName()));
+		
 		String fileOriginalName = file.getOriginalFilename();
 		String extName = fileOriginalName.substring(
 				fileOriginalName.lastIndexOf(".") + 1,

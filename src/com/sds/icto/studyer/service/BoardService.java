@@ -2,16 +2,22 @@ package com.sds.icto.studyer.service;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sds.icto.studyer.controller.MemberController;
 import com.sds.icto.studyer.domain.BoardVo;
 import com.sds.icto.studyer.domain.ClassVo;
+import com.sds.icto.studyer.domain.EditVo;
 import com.sds.icto.studyer.repository.BoardDao;
 import com.sds.icto.studyer.repository.ClassDao;
 
 @Service
 public class BoardService {
+
+	private static final Log LOG = LogFactory.getLog( MemberController.class );
 	
 	@Autowired
 	BoardDao boardDao;
@@ -61,6 +67,10 @@ public class BoardService {
 		int class_place_no = classDao.placeSearch(vo.getPlaceName());
 		int class_name_no = classDao.nameSearch(vo.getNameName());
 		return boardDao.selectBoardList(class_subject_no, class_teacher_no, class_place_no, class_name_no);
+	}
+
+	public void editInsert(EditVo editVo) {
+		
 	}
 	
 	

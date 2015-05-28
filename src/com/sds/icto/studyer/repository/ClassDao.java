@@ -2,13 +2,19 @@ package com.sds.icto.studyer.repository;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.sds.icto.studyer.controller.MemberController;
+
 @Repository
 public class ClassDao {
 
+	private static final Log LOG = LogFactory.getLog( MemberController.class );
+	
 	@Autowired
 	SqlMapClientTemplate sqlMapClientTemplate;
 

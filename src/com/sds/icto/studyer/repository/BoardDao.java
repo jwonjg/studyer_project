@@ -4,16 +4,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.sds.icto.studyer.controller.MemberController;
 import com.sds.icto.studyer.domain.BoardVo;
 import com.sds.icto.studyer.domain.ClassVo;
 import com.sds.icto.studyer.domain.MemberVo;
 
 @Repository
 public class BoardDao {
+
+	private static final Log LOG = LogFactory.getLog( MemberController.class );
 	
 	@Autowired
 	SqlMapClientTemplate sqlMapClientTemplate;
