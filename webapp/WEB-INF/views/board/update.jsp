@@ -92,6 +92,13 @@
 	
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.parallax-1.1.3.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.sticky.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/wow.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.easypiechart.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/waypoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.cbpQTRotator.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
 	
 	<script type="text/javascript">
 	function viewContent() {
@@ -99,11 +106,26 @@
 		$("#editor").contents().find("#editor").html($content.html());
 	};
 	
-/* 	function updateContent(){		
+
+	$("#uploadFileButton").on("click", function() {
+		$("#uploadFile").click();
+		
+	});
+	
+	$("#uploadFile").on(
+			"change",
+			function() {
+				
+				$("#uploadFileName").attr("value",
+						$(this).val().split('/').pop().split('\\').pop());
+	});
+	
+			
+	function submitWrite() {
 		var content = $("#editor").contents().find("#editor").html();
 		$("<input>").attr({name:"content", value:content, type:"hidden"}).appendTo("#writeForm");
 		$("#writeForm").submit();
-	}; */
+	}	
 	
 	</script>
 

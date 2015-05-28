@@ -78,6 +78,14 @@
 			</isNotEqual>
 		</dynamic>
 	</select>
+	
+	<update id="update" parameterClass="BoardVo">
+		<![CDATA[
+		update share_board
+		 set title=#title#, content=#content#, file_url=#file_url# 
+		 where no=#no# 	
+		]]>
+	</update>
 </sqlMap>
 
 
