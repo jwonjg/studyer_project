@@ -56,4 +56,7 @@ public class BoardService {
 		return boardDao.selectBoardList(class_subject_no, class_teacher_no, class_place_no, class_name_no);
 	}
 	
+	/*public void boardUpdate(BoardVo vo){
+		boardDao.Update(vo);
+	}*/
 }
