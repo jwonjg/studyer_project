@@ -107,6 +107,7 @@
 		$("#uploadFileButton").on("click", function() {
 			$("#uploadFile").click();
 		});
+		
 		$("#uploadFile").on(
 				"change",
 				function() {

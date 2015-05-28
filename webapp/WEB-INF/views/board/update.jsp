@@ -17,7 +17,7 @@
 </style>
 </head>
 
-<body>
+<body onload="viewContent()">
 	<header class="header"> 
 		<c:import url="/WEB-INF/views/include/header.jsp"/>
 	</header>
@@ -74,6 +74,7 @@
 					</div>
 					<div class="form-group">
 						<span style="color: #E7746F">Content</span>
+						<div id="invisibleContent" style="display:none">${vo.content}</div>
 						<div>
 						<iframe id="editor" scrolling="no" src="${pageContext.request.contextPath}/assets/editor/editor.jsp"></iframe>
 						</div>
@@ -89,18 +90,23 @@
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 	</footer>
 	
-	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
 	
 	<script type="text/javascript">
-	function submitWrite() {
+	function viewContent() {
+		var $content = $("#invisibleContent");
+		$("#editor").contents().find("#editor").html($content.html());
+	};
+	
+/* 	function updateContent(){		
 		var content = $("#editor").contents().find("#editor").html();
 		$("<input>").attr({name:"content", value:content, type:"hidden"}).appendTo("#writeForm");
 		$("#writeForm").submit();
-	}
+	}; */
 	
-});
 	</script>
+
 </body>
 </html>
 
