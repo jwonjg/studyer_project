@@ -57,10 +57,11 @@
 		]]>
 	</select>
 	
-	<select id="selectListByClass" resultClass="java.lang.String">	
+	<select id="selectListByClass" resultClass="BoardVo">	
 		<![CDATA[
-		select *
-		  from share_board where no > 0
+		select b.no no, title, content, file_url, good, reg_date, s.name subject_name, t.name teacher_name, p.name place_name, n.name name_name 
+		from share_board b, class_subject s, class_teacher t, class_place p, class_name n 
+		where b.class_subject_no = s.no and b.class_teacher_no = t.no and b.class_place_no = p.no and b.class_name_no = n.no
 		]]>
 		<dynamic>
 			<isNotEqual property="subject" compareValue="0" prepend="and">

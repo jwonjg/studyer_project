@@ -66,10 +66,10 @@ h3, h5, h6 {
 					<tbody>
 						<c:forEach var="board" items="${ requestScope.list }">
 							<tr>
-								<td><h6>${ pageScope.board.class_subject_no }</h6></td>
-								<td><h6>${ pageScope.board.class_teacher_no }</h6></td>
-								<td><h6>${ pageScope.board.class_place_no }</h6></td>
-								<td><h6>${ pageScope.board.class_name_no }</h6></td>
+								<td><h6>${ pageScope.board.subject_name }</h6></td>
+								<td><h6>${ pageScope.board.teacher_name }</h6></td>
+								<td><h6>${ pageScope.board.place_name }</h6></td>
+								<td><h6>${ pageScope.board.name_name }</h6></td>
 							</tr>
 							<tr>
 								<td style="border-top: none;" colspan="3">
@@ -80,132 +80,6 @@ h3, h5, h6 {
 								</td>
 							</tr>
 						</c:forEach>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
-						<tr>
-							<td><h6>주제aa</h6></td>
-							<td><h6>강사aa</h6></td>
-							<td><h6>기관aa</h6></td>
-							<td><h6>강의명aa</h6></td>
-						</tr>
-						<tr>
-							<td style="border-top: none;" colspan="3">
-								<h3>제목 예시</h3>
-							</td>
-							<td style="border-top: none;">
-								<h3>2015.05.27</h3>
-							</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>

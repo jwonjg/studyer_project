@@ -57,10 +57,10 @@ public class BoardDao {
 	@SuppressWarnings("unchecked")
 	public List<BoardVo> selectBoardList(int class_subject_no, int class_teacher_no, int class_place_no, int class_name_no) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("subjectNo", class_subject_no);
-		map.put("teacherNo", class_teacher_no);
-		map.put("placeNo", class_place_no);
-		map.put("nameNo", class_name_no);
+		map.put("subject", class_subject_no);
+		map.put("teacher", class_teacher_no);
+		map.put("place", class_place_no);
+		map.put("name", class_name_no);
 		return sqlMapClientTemplate.queryForList("board.selectListByClass", map);
 	}
 	
