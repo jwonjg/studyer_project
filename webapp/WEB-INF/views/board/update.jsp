@@ -83,7 +83,7 @@
 						</div>
 					</div>	
 					
-					<button onclick="submitWrite();" type="button" class="btn btn-lg btn-block wow fadeInUp">update</button>
+					<button onclick="submitUpdate();" type="button" class="btn btn-lg btn-block wow fadeInUp">update</button>
 				</form>
 			</div>
 		</div>
@@ -124,7 +124,7 @@
 	});
 	
 			
-	function submitWrite() {
+	function submitUpdate() {
 		var content = $("#editor").contents().find("#editor").html();
 		$("<input>").attr({name:"content", value:content, type:"hidden"}).appendTo("#writeForm");
 		$("#writeForm").submit();

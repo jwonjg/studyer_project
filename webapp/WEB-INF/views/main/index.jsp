@@ -11,10 +11,12 @@
 <!-- Custom styles CSS -->
 <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" media="screen">
 <style type="text/css">
-	#goSearchDiv {
-		text-align: center;
+	section {
 		min-height: 70vh;
 		padding-top: 30vh;
+	}
+	#goSearchDiv {
+		text-align: center;
 	}
 </style>
 </head>
@@ -25,11 +27,14 @@
 	<header class="header"> 
 		<c:import url="/WEB-INF/views/include/header.jsp"/>
 	</header>
+	
+	<nav>
+		<c:import url="/WEB-INF/views/include/navigation.jsp"/>
+	</nav>
 
 	<section id="wrapper">
 		<div id="middleNav">
-			<nav style="margin: 30px; min-height: 0px;"
-				class="navbar navbar-custom" role="navigation">
+			<nav style="margin: 30px; min-height: 0px;"	class="navbar navbar-custom">
 				<div id="goSearchDiv" class="col-sm-12">
 					<form class="navbar-form" role="search"	action="board/search" method="post">
 						<input type="text" class="class form-control input-lg" placeholder="주제" 
@@ -43,12 +48,6 @@
 						<button type="submit" class="btn input-lg searchBtn">search</button>
 					</form>
 				</div>
-				<div class="col-sm-6 col-md-6">
-					<h3 id="goWriteH3" style="cursor: pointer" class="text-center">write</h3>
-				</div>
-				<div class="col-sm-6 col-md-6">
-					<h3 id="goMyVote" style="cursor: pointer" class="text-center">my note</h3>
-				</div>
 			</nav>
 		</div>
 	</section>
@@ -59,129 +58,8 @@
 
 	<!-- Javascript files -->
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/jquery.parallax-1.1.3.js"></script>
-	<script src="assets/js/jquery.sticky.js"></script>
-	<script src="assets/js/wow.min.js"></script>
-	<script src="assets/js/jquery.easypiechart.js"></script>
-	<script src="assets/js/waypoints.min.js"></script>
-	<script src="assets/js/jquery.cbpQTRotator.js"></script>
-	<script src="assets/js/custom.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script type="text/javascript">
-	$("#goWriteH3").click(function() {
-		location.href = "${pageContext.request.contextPath}/board/write";
-	});
-	
-	$("#signUpUserEmail").on(
-			"blur",
-			function() {
-				var email = $("#signUpUserEmail").val();
-				if(email==null||email==""){
-					$("#signUpMsgP").text("Email을 입력하세요.");
-					return
-				}
-				$.ajax({
-					url : "${pageContext.request.contextPath}/member/checkEmail",
-					type : "post",
-					data : {
-						"email" : email
-					},
-					success : function( response ){
-				    	if( response.result == false  ) {
-				    		// 사용가능
-				    		$("#signUpMsgP").text(response.data);
-				    		
-				    	} else {
-				    		$("#signUpMsgP").text(response.data);
-							$("#signUpUserEmail").focus();
-							$("#signUpUserEmail").val("");
-				       	}
-					},
-					error : function(request, status, error) {
-						alert("code:" + request.status + "\n" + "message:"
-								+ request.responseText + "\n" + "error:"
-								+ error);
-					},
-					dataType : "json"
-				});
-			});
-	
-	
-	function signUpFormCheck() {
-		var FormInputs = $("#signUpMsgP").parent().next().find("input");
-		for ( var i = 0; i < FormInputs.length; i++) {
-			if ($(FormInputs[i]).val() == null
-					|| $(FormInputs[i]).val().trim() == "") {
-				$("#signUpMsgP").text(
-						$(FormInputs[i]).attr("placeholder")+" 입력하세요.");
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	function signIn() {
-		var email = $("#signInUserEmail").val();
-		var password = $("#signInUserPwd").val();
-		
-		$.ajax({
-			url : "${pageContext.request.contextPath}/member/signIn",
-			type : "post",
-			data : {
-				"email" : email,
-				"password" : password
-			},
-			success : function( response ){
-		    	if( response.result == 'fail'  ) {
-		    		// 사용가능
-		    		$("#signInMsgP").text("Email 혹은 Password를 확인해주세요.");
-		    		
-		    	} else {
-		    		location.href = "index";
-		       	}
-			},
-			error : function(request, status, error) {
-				alert("code:" + request.status + "\n" + "message:"
-						+ request.responseText + "\n" + "error:" + error);
-			},
-			dataType : "json"
-		});
-	}
-	
-	$("#uploadImageButton").on("click", function() {
-		$("#uploadImageFile").click();
-	});
-	$("#uploadImageFile").on(
-			"change",
-			function() {
-				
-				$("#uploadImageName").attr("value",
-						$(this).val().split('/').pop().split('\\').pop());
-		});
-
-	$(".class").focus(function(){
-		var categoryName = $(this).attr("name");
-		$.ajax({
-			url : "${pageContext.request.contextPath}/class/"+categoryName,
-			type : "post",
-			success : function( response ){
-				$("input[name='"+categoryName+"']").autocomplete("option", "source", response);
-			},
-			error : function(request, status, error) {
-				alert("code:" + request.status + "\n" + "message:"
-						+ request.responseText + "\n" + "error:" + error);
-			},
-			dataType : "json"
-		});
-	});
-	
-	$(function() {
-	    $( "input[name='subjectName']" ).autocomplete();
-	    $( "input[name='teacherName']" ).autocomplete();
-	    $( "input[name='placeName']" ).autocomplete();
-	    $( "input[name='nameName']" ).autocomplete();
-	  });
-	</script>
+	<script src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/custom.js"></script>
 </body>
 </html>
