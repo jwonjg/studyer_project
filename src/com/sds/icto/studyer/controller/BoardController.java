@@ -138,6 +138,20 @@ public class BoardController {
 //		int first = 0;
 //		int last = before_content.length();
 //		if(vo.getContent().length()>=before_content.length()){
+//			for (int i = 0; i < vo.getContent().length(); i++) {
+//				if(vo.getContent().charAt(i)!=before_content.charAt(i)) {
+//					first = i;
+//					break;
+//				}
+//			}
+//			
+//			for (int i = 0; i < vo.getContent().length(); i++) {
+//				if(vo.getContent().charAt(i)!=before_content.charAt(i)) {
+//					first = i;
+//					break;
+//				}
+//			}
+//			
 //			first = vo.getContent().compareTo(before_content);
 //			last = vo.getContent().length() - new StringBuilder(vo.getContent()).reverse().toString().compareTo(new StringBuilder(before_content).reverse().toString()); 
 //		}else{
