@@ -12,6 +12,10 @@ public class BoardVo {
 	private String file_url;
 	private int good;
 	private String reg_date;
+	private String subject_name;
+	private String teacher_name;
+	private String place_name;
+	private String name_name;
 	
 	public int getNo() {
 		return no;
@@ -73,6 +77,28 @@ public class BoardVo {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
-	
-	
+	public String getSubject_name() {
+		return subject_name;
+	}
+	public void setSubject_name(String subject_name) {
+		this.subject_name = subject_name;
+	}
+	public String getTeacher_name() {
+		return teacher_name;
+	}
+	public void setTeacher_name(String teacher_name) {
+		this.teacher_name = teacher_name;
+	}
+	public String getPlace_name() {
+		return place_name;
+	}
+	public void setPlace_name(String place_name) {
+		this.place_name = place_name;
+	}
+	public String getName_name() {
+		return name_name;
+	}
+	public void setName_name(String name_name) {
+		this.name_name = name_name;
+	}
 }
